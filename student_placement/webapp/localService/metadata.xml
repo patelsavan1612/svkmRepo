@@ -5,12 +5,12 @@
             <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
             <EntityType Name="ZDDL_CDS_1001" sap:content-version="1">
                 <Key>
-                    <PropertyRef Name="OrganisationCode"/>
+                    <PropertyRef Name="CourseCode"/>
                 </Key>
-                <Property Name="OrganisationCode" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="College Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="OrganisationName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="College Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="CourseCode" Type="Edm.String" Nullable="false" MaxLength="45" sap:unicode="false" sap:label="Course Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrganizationCode" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="CourseName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Course Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrganizationName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <EntityContainer Name="ZODATA_PM_1001_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
                 <EntitySet Name="ZDDL_CDS_1001Set" EntityType="ZODATA_PM_1001_SRV.ZDDL_CDS_1001" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>

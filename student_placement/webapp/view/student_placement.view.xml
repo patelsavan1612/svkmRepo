@@ -1,97 +1,122 @@
-<mvc:View xmlns:layout="sap.ui.layout" controllerName="studentplacement.controller.student_placement"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m" xmlns:f="sap.f"
-	xmlns:card="sap.f.cards"
-	xmlns:core="sap.ui.core"	
-    xmlns:fb="sap.ui.comp.filterbar"
-	xmlns:svm="sap.ui.comp.smartvariants">
-   	<f:DynamicPage>
-			<f:title>
-				<f:DynamicPageTitle>
-					<!-- <f:heading>
-						<svm:SmartVariantManagement id="svm" showExecuteOnSelection="true" />
-					</f:heading> -->
-					<f:expandedContent>
-						<Label id="expandedLabel" text="Placement Request" />
-					</f:expandedContent>
-					<f:snappedContent>
-						<Label id="snappedLabel" text="Placement Request" />
-					</f:snappedContent>
-				</f:DynamicPageTitle>
-			</f:title>
-			<f:header>
-				<f:DynamicPageHeader>
-					<f:content>
-						<fb:FilterBar id="filterbar" persistencyKey="myPersKey" useToolbar="false" search=".onSearch" filterChange=".onFilterChange" afterVariantLoad=".onAfterVariantLoad">
-							<fb:filterGroupItems>
-								<fb:FilterGroupItem name="Select Collage or Institute" label="Select Collage or Institute" groupName="Group1" visibleInFilterBar="true">
-									<fb:control>
-										<MultiComboBox
-											name="Select College or Institute"
-											selectionChange=".onSelectionChange"
-											items="{
-												path: '/ProductNames',
-												templateShareable: true
-											}"
-										>
-											<core:Item key="{key}" text="{name}"/>
-										</MultiComboBox>
-									</fb:control>
-								</fb:FilterGroupItem>
-								<fb:FilterGroupItem name="Program of Study / Course" label="Program of Study / Course" groupName="Group1" visibleInFilterBar="true">
-									<fb:control>
-										<MultiComboBox
-											name="Program of Study / Course"
-											selectionChange=".onSelectionChange"
-											items="{
-												path: '/ProductCategories',
-												templateShareable: true
-											}"
-										>
-											<core:Item key="{key}" text="{name}"/>
-										</MultiComboBox>
-									</fb:control>
-								</fb:FilterGroupItem>
-								<fb:FilterGroupItem name="Choose Year" label="Choose Year" groupName="Group1" visibleInFilterBar="true">
-									<fb:control>
-										<DatePicker width="200px" placeholder="Choose Year" displayFormat="yyyy"/>
-									</fb:control>
-								</fb:FilterGroupItem>
-							</fb:filterGroupItems>
-						</fb:FilterBar>
-					</f:content>
-				</f:DynamicPageHeader>
-			</f:header>
-			<f:content>
-				<Table
-					id="table"
-					inset="false"
-					items="{
-						path: '/ProductCollection'
-					}"
-				>
-					<columns>
-						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="College"/>
-						</Column>
-						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="Study / Course"/>
-						</Column>
-						<Column minScreenWidth="Tablet" demandPopin="true">
-							<Text text="year"/>
-						</Column>
-					</columns>
+<mvc:View xmlns:layout="sap.ui.layout"
+          controllerName="studentplacement.controller.student_placement"
+          xmlns:mvc="sap.ui.core.mvc"
+          displayBlock="true"
+          xmlns="sap.m"
+          xmlns:f="sap.f"
+          xmlns:card="sap.f.cards"
+          xmlns:core="sap.ui.core"
+          xmlns:fb="sap.ui.comp.filterbar"
+          xmlns:svm="sap.ui.comp.smartvariants">
 
-					<items>
-						<ColumnListItem vAlign="Middle">
-							<cells>
-								<ObjectIdentifier title="" text="" />
-								<Text text="" />
-								<Text text="" />
-							</cells>
-						</ColumnListItem>
-					</items>
-				</Table>
-			</f:content>
-		</f:DynamicPage>
+    <f:DynamicPage showFooter="true">
+
+        <!-- ... -->
+
+        <f:header>
+            <f:DynamicPageHeader>
+                <f:content>
+                    <FlexBox alignItems="End" width="100%">
+                        <fb:FilterBar id="filterbar"
+                                      persistencyKey="myPersKey"
+                                      showFilterConfiguration="false"
+                                      showGoOnFB="false"
+                                      useToolbar="false"
+                                      search=".onSearch"
+                                      filterChange=".onFilterChange"
+                                      afterVariantLoad=".onAfterVariantLoad">
+                            <fb:filterGroupItems>
+                                <fb:FilterGroupItem name="Select Collage or Institute"
+                                                    label="Select Collage or Institute"
+                                                    groupName="Group1"
+                                                    visibleInFilterBar="true">
+                                    <fb:control>
+                                        <ComboBox name="Select College or Institute"
+                                                    id="collegeinput"
+                                                  selectionChange=".onCollageSelectionChange"
+                                                  items="{ path: 'classcollegeDataset>/resArr', templateShareable: true }">
+                                            <core:Item key="{classcollegeDataset>OrganizationCode}" text="{classcollegeDataset>OrganizationName}" />
+                                        </ComboBox>
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                                <fb:FilterGroupItem name="Program of Study / Course"
+                                                    id="courseinput"
+                                                    label="Program of Study / Course"
+                                                    groupName="Group1"
+                                                    visibleInFilterBar="true">
+                                    <fb:control>
+                                        <MultiComboBox name="Program of Study / Course"
+                                                       selectionChange=".onProgramSelectionChange"
+                                                       items="{ path: 'classcollegeDatasetcourse>/resArr2', templateShareable: true }">
+                                            <core:Item key="{classcollegeDatasetcourse>CourseCode}" text="{classcollegeDatasetcourse>CourseName}" />
+                                        </MultiComboBox>
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                                <fb:FilterGroupItem name="Choose Year"
+                                                    label="Choose Year"
+                                                    groupName="Group1"
+                                                    visibleInFilterBar="true">
+                                    <fb:control>
+                                        <DatePicker width="200px" placeholder="Choose Year" displayFormat="yyyy" />
+                                    </fb:control>
+                                </fb:FilterGroupItem>
+                            </fb:filterGroupItems>
+                        </fb:FilterBar>
+                        <Button text="Go" press=".onGoPress" />
+                    </FlexBox>
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <Table id="studentList_table"
+                   inset="false"
+                   visible="false"
+				   mode="MultiSelect"
+                   items="{ path: '/ProductCollection' }">
+                <columns>
+                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <Text text="Collage or Institute" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <Text text="Study / Course" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <Text text="Academic Year" />
+                    </Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <Text text="Student Number" />
+                    </Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <Text text="Name of Student" />
+                    </Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <Text text="Email sent Data" />
+                    </Column>
+					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <Text text="Email Sent by : Placement UserID" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem vAlign="Middle">
+                        <cells>
+                            <ObjectIdentifier title="" text="" />
+                            <Text text="" />
+                            <Text text="" />
+							<Text text="" />
+                            <Text text="" />
+							<Text text="" />
+                            <Text text="" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </f:content>
+        <f:footer>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button type="Emphasized" text="Send Email" press="onSendMail" />
+            </OverflowToolbar>
+        </f:footer>
+    </f:DynamicPage>
+
 </mvc:View>

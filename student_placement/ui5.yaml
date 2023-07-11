@@ -16,13 +16,10 @@ server:
             - /test-resources
           url: https://ui5.sap.com
         backend:
-          - path:
-            url:
-            client:
-          - path: /sap
+          - path: /sap/opu/odata/sap/ZODATA_PM_1001_SRV
             url: https://sdcwddqapp.svkm.ac.in:44301
             client: '320'
-          - path: /sap/opu/odata/sap/ZODATA_PM_1001_SRV
+          - path: /sap
             url: https://sdcwddqapp.svkm.ac.in:44301
             client: '320'
     - name: fiori-tools-appreload
