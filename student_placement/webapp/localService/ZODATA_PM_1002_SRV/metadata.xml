@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZODATA_PM_1002_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="ZPMIELIGIBLEST" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OObjid"/>
+                    <PropertyRef Name="ScObjid"/>
+                    <PropertyRef Name="Peryr"/>
+                    <PropertyRef Name="Perid"/>
+                    <PropertyRef Name="Timelimit"/>
+                    <PropertyRef Name="StObjid"/>
+                    <PropertyRef Name="Progtype"/>
+                    <PropertyRef Name="Sess"/>
+                </Key>
+                <Property Name="OObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Organization ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ScObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Program Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Peryr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Acad. Year" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Perid" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Acad. Session" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Timelimit" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Time Limit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Progtype" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Program Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sess" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Acad. Session" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Begda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Endda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CalGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Calendar GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stobjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Student ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Student12" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Student Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AcadYear" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Acad. Year" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AcadSess" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Acad. Session" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RegBegda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Start date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RegEndda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Regdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Reg. On" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StEmail" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="E-Mail Address" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZODATA_PM_1002_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZPMIELIGIBLESTSet" EntityType="ZODATA_PM_1002_SRV.ZPMIELIGIBLEST" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://SDCWDDQAPP.SVKM.AC.IN:44301/sap/opu/odata/sap/ZODATA_PM_1002_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://SDCWDDQAPP.SVKM.AC.IN:44301/sap/opu/odata/sap/ZODATA_PM_1002_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -3,10 +3,10 @@
  */
 
 sap.ui.define([
-        "sap/ui/core/UIComponent",
-        "sap/ui/Device",
-        "studentplacement/model/models"
-    ],
+    "sap/ui/core/UIComponent",
+    "sap/ui/Device",
+    "studentplacement/model/models"
+],
     function (UIComponent, Device, models) {
         "use strict";
 
@@ -31,6 +31,8 @@ sap.ui.define([
                 this.setModel(models.createDeviceModel(), "device");
 
                 this.setModel(models.createModel(), "placementdataproperty");
+
+                this.setModel(models.createListModel(), "placementdataList");
             }
         });
     }

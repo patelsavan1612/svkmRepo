@@ -36,6 +36,9 @@ server:
           - path: /sap
             url: https://sdcwddqapp.svkm.ac.in:44301
             client: '320'
+          - path: /sap/opu/odata/sap/ZODATA_PM_1002_SRV
+            url: https://sdcwddqapp.svkm.ac.in:44301
+            client: '320'
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:

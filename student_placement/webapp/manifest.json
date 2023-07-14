@@ -21,7 +21,16 @@
                 "type": "OData",
                 "settings": {
                     "annotations": [],
-                    "localUri": "localService/metadata.xml",
+                    "localUri": "localService/ZODATA_PM_1001_SRV/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZODATA_PM_1002_SRV": {
+                "uri": "/sap/opu/odata/sap/ZODATA_PM_1002_SRV",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/ZODATA_PM_1002_SRV/metadata.xml",
                     "odataVersion": "2.0"
                 }
             }
@@ -72,6 +81,18 @@
             "": {
                 "preload": true,
                 "dataSource": "ZODATA_PM_1001_SRV",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "ZODATA_PM_1002_SRV": {
+                "dataSource": "ZODATA_PM_1002_SRV",
+                "preload": true,
                 "settings": {
                     "defaultBindingMode": "TwoWay",
                     "defaultCountMode": "Inline",

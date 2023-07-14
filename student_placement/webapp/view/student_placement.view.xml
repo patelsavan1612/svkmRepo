@@ -11,8 +11,6 @@
 
     <f:DynamicPage showFooter="true">
 
-        <!-- ... -->
-
         <f:header>
             <f:DynamicPageHeader>
                 <f:content>
@@ -43,9 +41,11 @@
                                                     id="courseinput"
                                                     label="Program of Study / Course"
                                                     groupName="Group1"
+                                                    visible="false"
                                                     visibleInFilterBar="true">
                                     <fb:control>
                                         <MultiComboBox name="Program of Study / Course"
+                                                        id="courseinput2"
                                                        selectionChange=".onProgramSelectionChange"
                                                        items="{ path: 'classcollegeDatasetcourse>/resArr2', templateShareable: true }">
                                             <core:Item key="{classcollegeDatasetcourse>CourseCode}" text="{classcollegeDatasetcourse>CourseName}" />
@@ -57,12 +57,17 @@
                                                     groupName="Group1"
                                                     visibleInFilterBar="true">
                                     <fb:control>
-                                        <DatePicker width="200px" placeholder="Choose Year" displayFormat="yyyy" />
+                                        <DatePicker id="yearinput" 
+                                        displayFormat="yyyy" 
+                                        valueFormat="yyyy" 
+                                        minDate="{viewModel>/minDate}" 
+                                     ></DatePicker>
                                     </fb:control>
                                 </fb:FilterGroupItem>
                             </fb:filterGroupItems>
                         </fb:FilterBar>
                         <Button text="Go" press=".onGoPress" />
+                        
                     </FlexBox>
                 </f:content>
             </f:DynamicPageHeader>
@@ -72,7 +77,7 @@
                    inset="false"
                    visible="false"
 				   mode="MultiSelect"
-                   items="{ path: '/ProductCollection' }">
+                   items="{ path: 'listModel>/results'}">
                 <columns>
                     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                         <Text text="Collage or Institute" />
@@ -99,13 +104,13 @@
                 <items>
                     <ColumnListItem vAlign="Middle">
                         <cells>
-                            <ObjectIdentifier title="" text="" />
-                            <Text text="" />
-                            <Text text="" />
-							<Text text="" />
-                            <Text text="" />
-							<Text text="" />
-                            <Text text="" />
+                            <Text  text="{listModel>OrganizationName}"/>
+                            <Text text="{listModel>CourseName }"/>
+                            <Text text="{listModel>Peryr}"/>
+							<Text text="{listModel>Student12}"/>
+                            <Text text="{listModel>Vorna}{listModel>Midnm}{listModel>Nachn}"/>
+							<Text text="{listModel>StEmail}"/>
+                            <Text text="{listModel>}"/>
                         </cells>
                     </ColumnListItem>
                 </items>
@@ -114,7 +119,7 @@
         <f:footer>
             <OverflowToolbar>
                 <ToolbarSpacer />
-                <Button type="Emphasized" text="Send Email" press="onSendMail" />
+                <Button id="sendEmailButton" type="Emphasized" text="Send Email" press="onSendMail" />
             </OverflowToolbar>
         </f:footer>
     </f:DynamicPage>
