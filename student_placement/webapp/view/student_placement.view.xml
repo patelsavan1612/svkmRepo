@@ -24,8 +24,8 @@
                                       filterChange=".onFilterChange"
                                       afterVariantLoad=".onAfterVariantLoad">
                             <fb:filterGroupItems>
-                                <fb:FilterGroupItem name="Select Collage or Institute"
-                                                    label="Select Collage or Institute"
+                                <fb:FilterGroupItem name="Select College or Institute"
+                                                    label="Select College or Institute"
                                                     groupName="Group1"
                                                     visibleInFilterBar="true">
                                     <fb:control>
@@ -80,7 +80,7 @@
                    items="{ path: 'listModel>/results'}">
                 <columns>
                     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
-                        <Text text="Collage or Institute" />
+                        <Text text="College or Institute" />
                     </Column>
                     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                         <Text text="Study / Course" />
@@ -95,9 +95,6 @@
                         <Text text="Name of Student" />
                     </Column>
 					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
-                        <Text text="Email sent Data" />
-                    </Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                         <Text text="Email Sent by : Placement UserID" />
                     </Column>
                 </columns>
@@ -105,12 +102,12 @@
                     <ColumnListItem vAlign="Middle">
                         <cells>
                             <Text  text="{listModel>OrganizationName}"/>
-                            <Text text="{listModel>CourseName }"/>
+                            <Text text="{listModel>CourseName}"/>
                             <Text text="{listModel>Peryr}"/>
 							<Text text="{listModel>Student12}"/>
                             <Text text="{listModel>Vorna}{listModel>Midnm}{listModel>Nachn}"/>
 							<Text text="{listModel>StEmail}"/>
-                            <Text text="{listModel>}"/>
+                            
                         </cells>
                     </ColumnListItem>
                 </items>

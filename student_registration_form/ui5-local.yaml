@@ -2,11 +2,11 @@
 
 specVersion: "2.6"
 metadata:
-  name: studentplacement
+  name: studentregistrationform
 type: application
 framework:
   name: SAPUI5
-  version: 1.115.1
+  version: 1.116.0
   libraries:
     - name: sap.m
     - name: sap.ui.core
@@ -29,15 +29,8 @@ server:
       afterMiddleware: compression
       configuration:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
-        backend:
-          - path: /sap/opu/odata/sap/ZODATA_PM_1001_SRV
-            url: https://sdcwddqapp.svkm.ac.in:44301
-            client: '320'
-          - path: /sap
-            url: https://sdcwddqapp.svkm.ac.in:44301
-            client: '320'
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: studentplacement
+        component: studentregistrationform
         ui5Theme: sap_horizon

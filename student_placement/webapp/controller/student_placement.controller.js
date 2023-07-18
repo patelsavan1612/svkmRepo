@@ -4,12 +4,13 @@ sap.ui.define([
     "sap/m/MessageBox",
     'sap/m/library',
     "sap/ui/core/util/Export",
-    "sap/ui/core/util/ExportTypeCSV"
+    "sap/ui/core/util/ExportTypeCSV",
+    'sap/ui/core/BusyIndicator'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, MessageBox, mobileLibrary, Export, ExportTypeCSV) {
+    function (Controller, JSONModel, MessageBox, mobileLibrary, Export, ExportTypeCSV, BusyIndicator) {
         "use strict";
         var that;
         var urlStorage;
@@ -17,7 +18,8 @@ sap.ui.define([
         var URLHelper = mobileLibrary.URLHelper;
         return Controller.extend("studentplacement.controller.student_placement", {
             onInit: function () {
-                debugger
+                // debugger
+                BusyIndicator.show(0);
                 var context;
                 context = this;
                 that = this;
@@ -25,13 +27,34 @@ sap.ui.define([
                 var placementmodel = new JSONModel(placementdata);
                 this.getView().setModel(placementmodel, "cModel");
                 oDataModel = this.getOwnerComponent().getModel();
-                that.listdata = this.getOwnerComponent().getModel("ZODATA_PM_1002_SRV");
+                that.listdata = this.getOwnerComponent().getModel("ZODATA_PM_1001_SRV");
                 var oViewModel = new sap.ui.model.json.JSONModel({
                     minDate: new Date(2022, 1, 1)
                 });
                 this.getView().setModel(oViewModel, "viewModel");
                 this.readCollageData();
             },
+            // handleRouteMatched: function (oEvent) {
+            //     //get UI model from component.js
+            //     this.oPModel = this.getOwnerComponent().getModel("oPropertyModel");
+
+            //     //get user attributes
+            //     this._getUserId();
+            // },
+            // _getUserId: function () {
+            //     $.get("/services/userapi/attributes").done(function (results) {
+            //         // sLoginId = results.login_name;
+            //         // sLoginType = results.user_type;
+            //         sLoginId = '8300894';
+            //         sLoginType = 'partner';
+            //         this._user();
+            //         this.readData();
+            //     }.bind(this));
+            // },
+            // _user: function () {
+            //     this.oModel2.mCustomHeaders.loginid = sLoginId;
+            //     this.oModel2.mCustomHeaders.logintype = sLoginType;
+            // },
             onGoPress: function (oEvent) {
                 var collegeInput = this.getView().byId("collegeinput");
                 var courseInput = this.getView().byId("courseinput2");
@@ -49,36 +72,37 @@ sap.ui.define([
                 var filters = [];
 
                 if (!isCollegeEmpty) {
-                    var collegeFilter = new sap.ui.model.Filter("OrganizationCode", sap.ui.model.FilterOperator.EQ, collegeInput.getSelectedKey());
+                    var collegeFilter = new sap.ui.model.Filter("OObjid", sap.ui.model.FilterOperator.EQ, collegeInput.getSelectedKey());
                     filters.push(collegeFilter);
                 }
 
                 if (!isCourseEmpty) {
                     var courseFilters = [];
                     courseInput.getSelectedKeys().forEach(function (course) {
-                        var courseFilter = new sap.ui.model.Filter("CourseCode", sap.ui.model.FilterOperator.EQ, course);
+                        var courseFilter = new sap.ui.model.Filter("ScObjid", sap.ui.model.FilterOperator.EQ, course);
                         courseFilters.push(courseFilter);
                     });
                     var courseFilter = new sap.ui.model.Filter(courseFilters, false);
                     filters.push(courseFilter);
                 }
 
-                if (!isYearEmpty) {
-                    var yearFilter = new sap.ui.model.Filter("yearInput", sap.ui.model.FilterOperator.EQ, yearInput.getDateValue());
-                    filters.push(yearFilter);
-                }
+                // if (!isYearEmpty) {
+                //     var yearFilter = new sap.ui.model.Filter("yearInput", sap.ui.model.FilterOperator.EQ, yearInput.getDateValue());
+                //     filters.push(yearFilter);
+                // }
 
                 var that = this;
                 var listmodel;
                 // var listdata = that.getView().getModel(listmodel);
 
-                that.listdata.read("/ZPMIELIGIBLESTSet", {
-                    // filters: filters,
+                oDataModel.read("/ZPMIELIGIBLESTSet", {
+                    filters: filters,
                     success: function (Data, response) {
                         for (var i = 0; i < Data.results.length; i++) {
+                            BusyIndicator.hide();
                             Data.results[i].OrganizationName = that.getView().byId("collegeinput").getSelectedKey();
                             Data.results[i].CourseName = that.getView().byId("courseinput").getSelectedKey();
-                            Data.results[i].yearinput = that.getView().byId("yearinput").getDateValue();
+                            // Data.results[i].yearinput = that.getView().byId("yearinput").getDateValue();
                         }
                         var listmodel = new sap.ui.model.json.JSONModel(Data);
                         that.getView().setModel(listmodel, "listModel");
@@ -91,14 +115,14 @@ sap.ui.define([
                 });
             },
             onCollageSelectionChange: function (oEvent) {
-                // debugger
+                debugger
                 var context = this;
                 var text = oEvent.mParameters.selectedItem.mProperties.key
                 var fil = new sap.ui.model.Filter("OrganizationCode", sap.ui.model.FilterOperator.EQ, text);
                 oDataModel.read("/ZDDL_CDS_1001_itemSet", {
                     filters: [fil],
                     success: function (Data, response) {
-
+                        BusyIndicator.hide();
                         console.log(Data)
                         console.log(response)
                         context.getView().byId("courseinput").setVisible(true)
@@ -115,7 +139,7 @@ sap.ui.define([
                             }
                             return null;
                         });
-                        console.log(resArr2)
+                        // console.log(resArr2)
                         var oModel = new JSONModel(resObj2);
                         context.getView().setModel(oModel, "classcollegeDatasetcourse");
 
@@ -134,6 +158,7 @@ sap.ui.define([
                 oDataModel.read("/ZDDL_CDS_1001Set", {
                     filters: [fil],
                     success: function (Data, response) {
+                        BusyIndicator.hide();
                         var Data2 = Data
                         var oModel = new JSONModel(Data);
                         context.getView().setModel(oModel, "classcollegeData");
@@ -150,7 +175,7 @@ sap.ui.define([
                             }
                             return null;
                         });
-                        console.log(resArr)
+                        // console.log(resArr)
                         var oModel = new JSONModel(resObj);
                         context.getView().setModel(oModel, "classcollegeDataset");
 
@@ -167,7 +192,7 @@ sap.ui.define([
                             }
                             return null;
                         });
-                        console.log(resArr2)
+                        // console.log(resArr2)
                         var oModel = new JSONModel(resObj2);
                         context.getView().setModel(oModel, "classcollegeDatasetcourse");
 
@@ -201,13 +226,13 @@ sap.ui.define([
                         {
                             name: "Collage or Institute",
                             template: {
-                                content: "{listModel>}"
+                                content: "{listModel>OrganizationName}"
                             }
                         },
                         {
                             name: "Study / Course",
                             template: {
-                                content: "{listModel>}"
+                                content: "{listModel>CourseName}"
                             }
                         },
                         {
@@ -231,13 +256,13 @@ sap.ui.define([
                         {
                             name: "Email sent Data",
                             template: {
-                                content: "{listModel>}"
+                                content: "{listModel>StEmail}"
                             }
                         },
                         {
                             name: "Email Sent by : Placement UserID",
                             template: {
-                                content: "{listModel>StEmail}"
+                                content: "{listModel>}"
                             }
                         }
 
@@ -311,7 +336,7 @@ sap.ui.define([
                         definitionId: "mailtask",
                         context: {
                             "to": thatMaster._email,
-                            // "to": "komal.w@intellectbizware.com",
+                            // "to": "savan.p@intellectbizware.com",
                             "subject": subject,
                             "body": mailBody
                         }
