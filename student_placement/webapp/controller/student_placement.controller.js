@@ -56,6 +56,7 @@ sap.ui.define([
             //     this.oModel2.mCustomHeaders.logintype = sLoginType;
             // },
             onGoPress: function (oEvent) {
+                // debugger
                 var collegeInput = this.getView().byId("collegeinput");
                 var courseInput = this.getView().byId("courseinput2");
                 var yearInput = this.getView().byId("yearinput");
@@ -86,10 +87,10 @@ sap.ui.define([
                     filters.push(courseFilter);
                 }
 
-                // if (!isYearEmpty) {
-                //     var yearFilter = new sap.ui.model.Filter("yearInput", sap.ui.model.FilterOperator.EQ, yearInput.getDateValue());
-                //     filters.push(yearFilter);
-                // }
+                if (!isYearEmpty) {
+                    var yearFilter = new sap.ui.model.Filter("Peryr", sap.ui.model.FilterOperator.EQ, yearInput.getDateValue());
+                    filters.push(yearFilter);
+                }
 
                 var that = this;
                 var listmodel;

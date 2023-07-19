@@ -5,30 +5,25 @@
       xmlns="sap.uxap"  xmlns:m="sap.m" xmlns:f="sap.ui.layout.form" class="sapUiSizeCompact">
    
 
-    	<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" upperCaseAnchorBar="false">
-		<headerTitle>
-			<ObjectPageDynamicHeaderTitle>
-				<heading>
-						<m:VBox alignItems="Center">
+<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" upperCaseAnchorBar="false" class="sapUiSizeCompact">
+	<headerTitle>
+		<ObjectPageDynamicHeaderTitle>
+			<heading>
+					<m:VBox alignItems="Center" class="sapUiSizeCompact">
 					<m:Avatar
 							src="{/Woman01}"
-							displaySize="XL"
+							displaySize="L"
 							showBorder="true"
 							press="onPress"/>
-							
 					<m:Text text="Student Name (First Name, Surname)" class="sapUiSmallMarginTop"/>
 					<m:Label text="SAP Number" design="Bold"/>
-					
-
-				</m:VBox>
-				</heading>
-
-				<snappedTitleOnMobile>
+					</m:VBox>
+			</heading>
+		<snappedTitleOnMobile>
 					<m:Title text=""/>
-				</snappedTitleOnMobile>
-
-			</ObjectPageDynamicHeaderTitle>
-		</headerTitle>
+		</snappedTitleOnMobile>
+		</ObjectPageDynamicHeaderTitle>
+	</headerTitle>
 
 		<sections>
 			<ObjectPageSection titleUppercase="false" title="my section">
@@ -55,9 +50,7 @@
 					<m:Text text="{tendorReq>/TNAME}"/>
 					<m:Label text="Personal email ID" design="Bold"/>
 					<m:Text text="{path: 'tendorReq>/FRM_DAT', formatter : '.formatter.formatDate'}"/>
-                    
-					
-					
+	
 					<core:Title text=""/>
 					<m:Label text="Permanent Address" design="Bold"/>
 					<m:Text text="{path: 'tendorReq>/FRM_DAT', formatter : '.formatter.formatDate'}"/>
@@ -66,7 +59,7 @@
 					<m:Label text="Home Town" design="Bold"/>
 					<m:Text text="{path: 'vendor>/VENDER_SUBMIT_DATE', formatter : '.formatter.formatDate'}"/>
                     
-				</f:SimpleForm>
+								</f:SimpleForm>
 								</m:VBox>
 							</ObjectPageLazyLoader>
 						</blocks>
@@ -79,8 +72,8 @@
 						<blocks>
 							<ObjectPageLazyLoader stashed="true" id="Section2stashed">
 								<m:VBox class="sapUiSmallMargin">
-									<f:SimpleForm id="academic_details" editable="false" layout="ResponsiveGridLayout" labelSpanXL="5" labelSpanL="5"
-					labelSpanM="5" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2"
+									<f:SimpleForm id="academic_details" editable="false" layout="ResponsiveGridLayout" labelSpanXL="6" labelSpanL="6"
+					labelSpanM="6" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2"
 					columnsL="2" columnsM="2" singleContainerFullSize="false" title="" class="coreSimpClass">
 
 					<core:Title text=""/>
@@ -113,7 +106,7 @@
 					<m:Label text="SEM 4 SGPA" design="Bold"/>
 					<m:Text text="{path: 'vendor>/VENDER_SUBMIT_DATE', formatter : '.formatter.formatDate'}"/>
 					
-				</f:SimpleForm>
+								</f:SimpleForm>
 								</m:VBox>
 							</ObjectPageLazyLoader>
 						</blocks>
@@ -129,8 +122,8 @@
 									<f:SimpleForm>
 									<m:Toolbar>
 									<m:ToolbarSpacer />
-		<m:Button icon="sap-icon://add" press="onAddButtonClick" />
-	</m:Toolbar>
+									<m:Button icon="sap-icon://add" press="onAddButtonClick" />
+									</m:Toolbar>
 					<m:Table id="Qalification"   class="sapUiSizeCompact">
 						<m:columns>
 							<m:Column hAlign="Center">
@@ -158,19 +151,15 @@
                     <core:Item key="1" text="Degree" />
                     <core:Item key="2" text="Diploma" />
                     <core:Item key="3" text="PG Diploma" />
-                </m:Select>
+                					</m:Select>
 									<m:Input />
 									<m:DateRangeSelection />
-									<m:Input />
-									
-									
-									
+									<m:Input />	
 								</m:cells>
 							</m:ColumnListItem>
 						</m:items>
 					</m:Table>
-				
-				</f:SimpleForm>
+								</f:SimpleForm>
 								</m:VBox>
 							</ObjectPageLazyLoader>
 						</blocks>
@@ -188,7 +177,6 @@
     </blocks>
 </ObjectPageSubSection>
 
-
 				</subSections>
 			</ObjectPageSection>
             <ObjectPageSection titleUppercase="false" title="my section">
@@ -200,8 +188,8 @@
 									<f:SimpleForm>
 									<m:Toolbar>
 									<m:ToolbarSpacer />
-		<m:Button icon="sap-icon://add" press="onAddButtonClickip" />
-	</m:Toolbar>
+									<m:Button icon="sap-icon://add" press="onAddButtonClickip" />
+									</m:Toolbar>
 					<m:Table id="ip_Details" width="auto"  class="sapUiSizeCompact">
 						<m:columns>
 							<m:Column hAlign="Center">
@@ -226,20 +214,20 @@
 								<m:Label text="Offer letter or experience certificate of last 2 internships" wrapping="true" design="Bold"/>
 							</m:Column>
 							<m:Column hAlign="Center">
-								<m:Label text="Higher education - immediately post- PG, When? Please provide a period " wrapping="true" design="Bold"/>
+								<m:Label text="Higher education - immediately post- PG, When? Please provide a period" wrapping="true" design="Bold"/>
 							</m:Column>
 						</m:columns>
 						<m:items>
 							 <m:ColumnListItem id="templateRowIp">
-								<m:cells>
-									<m:Text text="1" />
-									<m:Input />
-									<m:Input />
-									<m:DateRangeSelection />
-									<m:Input />
-									<m:Input />
-									<m:Input />
-									<m:Input />
+													<m:cells>
+														<m:Text text="1" />
+														<m:Input />
+														<m:Input />
+														<m:DateRangeSelection />
+														<m:Input />
+														<m:Input />
+														<m:Input />
+														<m:Input />
 													</m:cells>
 												</m:ColumnListItem>
 											</m:items>
@@ -252,6 +240,5 @@
 				</subSections>
 			</ObjectPageSection>
 		</sections>
-	</ObjectPageLayout>
-        
+	</ObjectPageLayout>       
 </mvc:View>

@@ -51,17 +51,18 @@ sap.ui.define([
                 table.addItem(newRow);
             },
             onClick: function (oEvent) {
-                var that = this;
-                /*	sap.ui.core.util.File.save(that.objectUrl, "filename", "jpeg", "image/jpeg");*/
-                var that = this;
-                download("data:application/octet-stream;base64," + that.convert, that.filename, that.mime);
-                var x = new XMLHttpRequest();
-                x.open("GET", "http://danml.com/wave2.gif", true);
-                x.responseType = 'blob';
-                x.onload = function (e) {
-                    download(x.response, that.filename, that.mime);
-                };
-                x.send();
+                debugger
+                // var that = this;
+                // /*	sap.ui.core.util.File.save(that.objectUrl, "filename", "jpeg", "image/jpeg");*/
+                // var that = this;
+                // download("data:application/octet-stream;base64," + that.convert, that.filename, that.mime);
+                // var x = new XMLHttpRequest();
+                // x.open("GET", "http://danml.com/wave2.gif", true);
+                // x.responseType = 'blob';
+                // x.onload = function (e) {
+                //     download(x.response, that.filename, that.mime);
+                // };
+                // x.send();
                 /*window.location.href = 'data:application/octet-stream;base64,' + that.convert;*/
             }
 
