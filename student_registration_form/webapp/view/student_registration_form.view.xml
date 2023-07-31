@@ -1,145 +1,166 @@
 <mvc:View controllerName="studentregistrationform.controller.student_registration_form"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
      xmlns:l="sap.ui.layout"  xmlns:t="sap.ui.table"
-	xmlns:core="sap.ui.core"  xmlns:layout="sap.ui.layout"
+	xmlns:core="sap.ui.core"  xmlns:layout="sap.ui.layout" xmlns:u="sap.ui.unified"
       xmlns="sap.uxap"  xmlns:m="sap.m" xmlns:f="sap.ui.layout.form" class="sapUiSizeCompact">
    
 
-<ObjectPageLayout id="ObjectPageLayout" enableLazyLoading="true" upperCaseAnchorBar="false" class="sapUiSizeCompact">
-	<headerTitle>
-		<ObjectPageDynamicHeaderTitle>
-			<heading>
-					<m:VBox alignItems="Center" class="sapUiSizeCompact">
-					<m:Avatar
-							src="{/Woman01}"
-							displaySize="L"
-							showBorder="true"
-							press="onPress"/>
-					<m:Text text="Student Name (First Name, Surname)" class="sapUiSmallMarginTop"/>
-					<m:Label text="SAP Number" design="Bold"/>
-					</m:VBox>
-			</heading>
-		<snappedTitleOnMobile>
-					<m:Title text=""/>
-		</snappedTitleOnMobile>
-		</ObjectPageDynamicHeaderTitle>
-	</headerTitle>
+ <ObjectPageLayout id="ObjectPageLayout" showFooter="true" enableLazyLoading="true" upperCaseAnchorBar="false" class="sapUiSizeCompact">
+    <headerTitle >
+      <ObjectPageDynamicHeaderTitle class="sapUiSizeCompact">
+       	<expandedHeading>
+			<m:HBox>
+				<m:Title text="Registration Form" wrapping="true"/>	
+			</m:HBox>
+		</expandedHeading>
+			<snappedHeading>
+				<m:FlexBox  fitContainer="true" alignItems="Center">
+					<m:Avatar src="../model/man.png" class="sapUiTinyMarginEnd"/>
+					<m:Title text="Student Name (First Name, Surname)" wrapping="true"/>
+				</m:FlexBox>
+			</snappedHeading>
+		<actions>		
+			<m:OverflowToolbarButton icon="sap-icon://pull-down" press="onGeneratePDF" text="PDF" type="Emphasized" tooltip="Download"/>
+		</actions>
+      </ObjectPageDynamicHeaderTitle>
+    </headerTitle>
+	<headerContent>
+		<m:FlexBox wrap="Wrap">
+		<m:Avatar src="../model/man.png" displaySize="M" showBorder="true" press="onPress"/>
 
-		<sections>
-			<ObjectPageSection titleUppercase="false" title="my section">
-				<subSections>
-					<ObjectPageSubSection title="Personal Details" mode="Expanded" id="Section1" titleUppercase="false">
-						<blocks>
-							<ObjectPageLazyLoader stashed="true" id="Section1stashed">
-								<m:VBox class="sapUiSmallMargin">
-									<f:SimpleForm id="personal_details" editable="false" layout="ResponsiveGridLayout" labelSpanXL="5" labelSpanL="5"
+	<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+		<m:Text text="Student Name (First Name, Surname)" class="sapUiSmallMarginTop" />
+        <m:Label text="SAP Number" design="Bold" />
+	</layout:VerticalLayout>
+	<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">	
+        <m:Label text="Date of Birth" design="Bold" />
+        <m:Text text="{StudentDataset>/}" />
+        <m:Label text="Contact number" design="Bold" />
+        <m:Text text="{StudentDataset>/}" />
+		<m:Label text="Home Town" design="Bold" />
+        <m:Text text="{StudentDataset>/}" />
+	</layout:VerticalLayout>
+	<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+		<m:Label text="Permanent Address" design="Bold" />
+        <m:Text text="{StudentDataset>/}" />
+        <m:Label text="Temporary Address" design="Bold" />
+        <m:Text text="{StudentDataset>/}" />
+    </layout:VerticalLayout>
+		</m:FlexBox>
+    </headerContent>
+
+<sections>
+	<ObjectPageSection titleUppercase="false" title="my section">
+		<subSections>
+			<ObjectPageSubSection title="Personal Details" mode="Expanded" id="Section1" titleUppercase="false">
+				<blocks>
+					<ObjectPageLazyLoader stashed="true" id="Section1stashed">
+						<m:VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="personal_details" editable="false" layout="ResponsiveGridLayout" labelSpanXL="5" labelSpanL="5"
 					labelSpanM="5" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2"
 					columnsL="2" columnsM="2" singleContainerFullSize="false" title="" class="coreSimpClass">
 					<core:Title text=""/>
 					<m:Label text="Gender" design="Bold"/>
-					<m:Text text="{vendorList>/VENDOR_NAME}"/>
-                    <!-- <m:Label text="Student Name (First Name, Surname)" design="Bold"/>
-					<m:Text text="{tendorReq>/TREQID}"/> -->
+					<m:Text text="{StudentDataset>/}"/>
 					<m:Label text="Date of Birth" design="Bold"/>
-					<m:Text text="{vendorList>/VENDOR_NAME}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					<m:Label text="Contact number" design="Bold"/>
-					<m:Text text="{tendorReq>/TNAME}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					
 					<core:Title text=""/>
 					<m:Label text="Official College email ID" design="Bold"/>
-					<m:Text text="{tendorReq>/TNAME}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					<m:Label text="Personal email ID" design="Bold"/>
-					<m:Text text="{path: 'tendorReq>/FRM_DAT', formatter : '.formatter.formatDate'}"/>
+					<m:Text text="{StudentDataset>/}"/>
+					<m:Label text="Home Town" design="Bold"/>
+					<m:Text text="{StudentDataset>/}"/>
 	
 					<core:Title text=""/>
 					<m:Label text="Permanent Address" design="Bold"/>
-					<m:Text text="{path: 'tendorReq>/FRM_DAT', formatter : '.formatter.formatDate'}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					<m:Label text="Temporary Address" design="Bold"/>
-					<m:Text text="{vendorList>/VENDOR}"/>
-					<m:Label text="Home Town" design="Bold"/>
-					<m:Text text="{path: 'vendor>/VENDER_SUBMIT_DATE', formatter : '.formatter.formatDate'}"/>
-                    
-								</f:SimpleForm>
-								</m:VBox>
-							</ObjectPageLazyLoader>
-						</blocks>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-			<ObjectPageSection titleUppercase="false" title="my section">
-				<subSections>
-					<ObjectPageSubSection title="Academic details" mode="Expanded" id="Section2" titleUppercase="false">
-						<blocks>
-							<ObjectPageLazyLoader stashed="true" id="Section2stashed">
-								<m:VBox class="sapUiSmallMargin">
-									<f:SimpleForm id="academic_details" editable="false" layout="ResponsiveGridLayout" labelSpanXL="6" labelSpanL="6"
+					<m:Text text="{StudentDataset>/}"/>
+					
+						</f:SimpleForm>
+						</m:VBox>
+					</ObjectPageLazyLoader>
+				</blocks>
+			</ObjectPageSubSection>
+		</subSections>
+	</ObjectPageSection>
+	<ObjectPageSection titleUppercase="false" title="my section">
+		<subSections>
+			<ObjectPageSubSection title="Academic details" mode="Expanded" id="Section2" titleUppercase="false">
+				<blocks>
+					<ObjectPageLazyLoader stashed="true" id="Section2stashed">
+						<m:VBox class="sapUiSmallMargin">
+						<f:SimpleForm id="academic_details" editable="false" layout="ResponsiveGridLayout" labelSpanXL="6" labelSpanL="6"
 					labelSpanM="6" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2"
 					columnsL="2" columnsM="2" singleContainerFullSize="false" title="" class="coreSimpClass">
 
 					<core:Title text=""/>
 					<m:Label text="College" design="Bold"/>
-					<m:Text text="{tendorReq>/TREQID}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					<m:Label text="Program Name" design="Bold"/>
-					<m:Text text="{vendorList>/VENDOR_NAME}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					<m:Label text="Academic year/Semester" design="Bold"/>
-					<m:Text text="{tendorReq>/TREQID}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					<m:Label text="Aggregate of SEM 1 to SEM 4 SGPI" design="Bold"/>
-					<m:Text text="{vendorList>/VENDOR_NAME}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					
 					<core:Title text=""/>
 					<m:Label text="STD X Marks (in %)" design="Bold"/>
-					<m:Text text="{tendorReq>/TNAME}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					<m:Label text="STD X - the year of passing" design="Bold"/>
-					<m:Text text="{path: 'tendorReq>/FRM_DAT', formatter : '.formatter.formatDate'}"/>
+					<m:Text text="{StudentDataset>/}"/>
                     <m:Label text="STD XII Marks (in %)" design="Bold"/>
-					<m:Text text="{tendorReq>/TNAME}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					<m:Label text="STD XII - the year of passing" design="Bold"/>
-					<m:Text text="{path: 'tendorReq>/FRM_DAT', formatter : '.formatter.formatDate'}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					
 					<core:Title text=""/>
 					<m:Label text="SEM 1 SGPA" design="Bold"/>
-					<m:Text text="{vendorList>/VENDOR}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					<m:Label text="SEM 2 SGPA" design="Bold"/>
-					<m:Text text="{tendorReq>/TNAME}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					<m:Label text="SEM 3 SGPA" design="Bold"/>
-					<m:Text text="{path: 'tendorReq>/FRM_DAT', formatter : '.formatter.formatDate'}"/>
+					<m:Text text="{StudentDataset>/}"/>
 					<m:Label text="SEM 4 SGPA" design="Bold"/>
-					<m:Text text="{path: 'vendor>/VENDER_SUBMIT_DATE', formatter : '.formatter.formatDate'}"/>
-					
-								</f:SimpleForm>
-								</m:VBox>
-							</ObjectPageLazyLoader>
-						</blocks>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
-			<ObjectPageSection titleUppercase="false" title="Qualification">
-				<subSections>
-					<ObjectPageSubSection title="Qualifications" mode="Expanded" id="Qualifications" titleUppercase="false">
-						<blocks>
-							<ObjectPageLazyLoader stashed="true" id="Section3stashed">
-								<m:VBox class="sapUiSmallMargin">
-									<f:SimpleForm>
+					<m:Text text="{StudentDataset>/}"/>
+						</f:SimpleForm>
+						</m:VBox>
+					</ObjectPageLazyLoader>
+				</blocks>
+			</ObjectPageSubSection>
+		</subSections>
+	</ObjectPageSection>
+	<ObjectPageSection titleUppercase="false" title="Qualification">
+		<subSections>
+			<ObjectPageSubSection title="Qualifications" mode="Expanded" id="Qualifications" titleUppercase="false">
+				<blocks>
+					<ObjectPageLazyLoader stashed="true" id="Section3stashed">
+						<m:VBox class="sapUiSmallMargin">
+						<f:SimpleForm>
 									<m:Toolbar>
 									<m:ToolbarSpacer />
 									<m:Button icon="sap-icon://add" press="onAddButtonClick" />
 									</m:Toolbar>
-					<m:Table id="Qalification"   class="sapUiSizeCompact">
+						<m:Table id="Qalification"   class="sapUiSizeCompact">
 						<m:columns>
-							<m:Column hAlign="Center">
-								<m:Label text="SR No." design="Bold" wrapping="true"/>
+							<m:Column hAlign="Begin" width="5rem">
+								<m:Label text="SR No." design="Bold" wrapping="true" required="true"/>
 							</m:Column>
-							<m:Column hAlign="Begin">
-								<m:Label text="Name of additional qualification" wrapping="true" design="Bold"/>
-							</m:Column>
-							<m:Column hAlign="Center">
-								<m:Label text="Institution from which qualification is acquired" wrapping="true" design="Bold"/>
+							<m:Column hAlign="Begin" width="14rem">
+								<m:Label text="Name of additional qualification" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
 							<m:Column hAlign="Center">
-								<m:Label text="Duration of course" wrapping="true" design="Bold"/>
+								<m:Label text="Institution from which qualification is acquired" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
 							<m:Column hAlign="Center">
-								<m:Label text="Result" wrapping="true"  design="Bold"/>
+								<m:Label text="Duration of course" wrapping="true" design="Bold" required="true"/>
+							</m:Column>
+							<m:Column hAlign="Center">
+								<m:Label text="Result" wrapping="true"  design="Bold" required="true"/>
 							</m:Column>
 							
 						</m:columns>
@@ -147,72 +168,70 @@
 							 <m:ColumnListItem id="templateRow">
 								<m:cells>
 									<m:Text text="1" />
-									<m:Select>
-                    <core:Item key="1" text="Degree" />
-                    <core:Item key="2" text="Diploma" />
-                    <core:Item key="3" text="PG Diploma" />
+									<m:Select width="14rem">
+                    					<core:Item key="1" text="Degree" />
+                    					<core:Item key="2" text="Diploma" />
+                    					<core:Item key="3" text="PG Diploma" />
                 					</m:Select>
 									<m:Input />
 									<m:DateRangeSelection />
-									<m:Input />	
+  									<u:FileUploader
+			id="fileUploader"
+			name="myFileUpload"
+			uploadUrl="upload/"
+			placeholder="Choose a file for Upload..."
+			tooltip="Upload your file to the local server"
+			uploadComplete="handleUploadComplete"/>
+  									<!-- <m:Button icon="sap-icon://upload" press="handleUploadButtonPress" /> -->
+									
 								</m:cells>
 							</m:ColumnListItem>
 						</m:items>
-					</m:Table>
-								</f:SimpleForm>
-								</m:VBox>
-							</ObjectPageLazyLoader>
-						</blocks>
-					</ObjectPageSubSection>
-<ObjectPageSubSection title="Result Attachment" titleUppercase="false">
-    <blocks>
-        <m:UploadCollection id="UploadCollection" uploadButtonInvisible="false" noDataDescription="No files">
-            <m:items>
-                <m:UploadCollectionItem fileName="{attach>TACTTACH_FILENAME}" press="onClick" mimeType="{attach>TACTTACH_MIMETYPE}"
-                     visibleEdit="false" visibleDelete="false" selected="{selected}"></m:UploadCollectionItem>
-            </m:items>
-        </m:UploadCollection>
-    </blocks>
-</ObjectPageSubSection>
-
-				</subSections>
-			</ObjectPageSection>
-            <ObjectPageSection titleUppercase="false" title="my section">
-				<subSections>
-					<ObjectPageSubSection title="Internship/Project Details" mode="Expanded" id="internship_project" titleUppercase="false">
-						<blocks>
-							<ObjectPageLazyLoader stashed="true" id="Section3stashedIP">
+						</m:Table>
+						</f:SimpleForm>
+						</m:VBox>
+					</ObjectPageLazyLoader>
+				</blocks>
+			</ObjectPageSubSection>
+		</subSections>
+	</ObjectPageSection>
+    <ObjectPageSection titleUppercase="false" title="my section">
+		<subSections>
+			<ObjectPageSubSection title="Internship/Project Details" mode="Expanded" id="internship_project" titleUppercase="false">
+				<blocks>
+					<ObjectPageLazyLoader stashed="true" id="Section3stashedIP">
 								<m:VBox class="sapUiSmallMargin">
 									<f:SimpleForm>
 									<m:Toolbar>
 									<m:ToolbarSpacer />
 									<m:Button icon="sap-icon://add" press="onAddButtonClickip" />
 									</m:Toolbar>
-					<m:Table id="ip_Details" width="auto"  class="sapUiSizeCompact">
-						<m:columns>
-							<m:Column hAlign="Center">
-								<m:Label text="SR No." design="Bold" wrapping="true"/>
+									<m:ScrollContainer  horizontal="true">
+							<m:Table id="ip_Details" width="auto"  class="sapUiSizeCompact">
+							<m:columns>
+							<m:Column hAlign="Begin" width="5rem">
+								<m:Label text="SR No." design="Bold" wrapping="true" required="true"/>
 							</m:Column>
-							<m:Column hAlign="Center">
-								<m:Label text="Details of Internships" design="Bold" wrapping="true"/>
+							<m:Column hAlign="Center" width="14rem">
+								<m:Label text="Details of Internships" design="Bold" wrapping="true" required="true"/>
 							</m:Column>
-							<m:Column hAlign="Center">
-								<m:Label text="Name of Organisation (most recent)" wrapping="true" design="Bold"/>
+							<m:Column hAlign="Center" width="14rem">
+								<m:Label text="Name of Organisation (most recent)" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
-							<m:Column hAlign="Center">
-								<m:Label text="Duration of internship" wrapping="true" design="Bold"/>
+							<m:Column hAlign="Center" width="14rem">
+								<m:Label text="Duration of internship" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
-							<m:Column hAlign="Center">
-								<m:Label text="Contact details (official email or phone no) of the immediate supervisor during the current/latest internship" wrapping="true" design="Bold"/>
+							<m:Column hAlign="Center" width="14rem">
+								<m:Label text="Contact details (official email or phone no) of the immediate supervisor during the current/latest internship" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
-							<m:Column hAlign="Center">
-								<m:Label text="Designation of the student during internship" wrapping="true" design="Bold"/>
+							<m:Column hAlign="Center" width="14rem">
+								<m:Label text="Designation of the student during internship" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
-							<m:Column hAlign="Center">
-								<m:Label text="Offer letter or experience certificate of last 2 internships" wrapping="true" design="Bold"/>
+							<m:Column hAlign="Center" width="14rem">
+								<m:Label text="Offer letter or experience certificate of last 2 internships" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
-							<m:Column hAlign="Center">
-								<m:Label text="Higher education - immediately post- PG, When? Please provide a period" wrapping="true" design="Bold"/>
+							<m:Column hAlign="Center" width="14rem">
+								<m:Label text="Higher education - immediately post- PG, When? Please provide a period" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
 						</m:columns>
 						<m:items>
@@ -224,12 +243,19 @@
 														<m:DateRangeSelection />
 														<m:Input />
 														<m:Input />
-														<m:Input />
+														<u:FileUploader
+			id="fileUploaderIntern"
+			name="myFileUpload"
+			uploadUrl="upload/"
+			placeholder="Choose a file for Upload..."
+			tooltip="Upload your file to the local server"
+			uploadComplete="handleUploadComplete"/>
 														<m:Input />
 													</m:cells>
 												</m:ColumnListItem>
 											</m:items>
 										</m:Table>
+										</m:ScrollContainer>
 									</f:SimpleForm>
 								</m:VBox>
 							</ObjectPageLazyLoader>
@@ -238,5 +264,11 @@
 				</subSections>
 			</ObjectPageSection>
 		</sections>
+			<footer>
+			<m:OverflowToolbar>
+				<m:ToolbarSpacer />
+				<m:Button id="submitButton" type="Accept" text="Submit" press="onSubmit" ariaHasPopup="Dialog"/>
+			</m:OverflowToolbar>
+		</footer>
 	</ObjectPageLayout>       
 </mvc:View>

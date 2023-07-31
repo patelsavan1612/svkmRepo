@@ -31,11 +31,11 @@ server:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
           - path: /sap/opu/odata/sap/ZODATA_PM_1001_SRV
-            url: https://sdcwddqapp.svkm.ac.in:44301
-            client: '320'
+            url: https://sdcwddqapp.svkm.ac.in:44300
+            client: '300'
           - path: /sap
-            url: https://sdcwddqapp.svkm.ac.in:44301
-            client: '320'
+            url: https://sdcwddqapp.svkm.ac.in:44300
+            client: '300'
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:

@@ -5,12 +5,13 @@ sap.ui.define([
     'sap/m/library',
     "sap/ui/core/util/Export",
     "sap/ui/core/util/ExportTypeCSV",
-    'sap/ui/core/BusyIndicator'
+    'sap/ui/core/BusyIndicator',
+    'sap/m/MessageToast'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, MessageBox, mobileLibrary, Export, ExportTypeCSV, BusyIndicator) {
+    function (Controller, JSONModel, MessageBox, mobileLibrary, Export, ExportTypeCSV, BusyIndicator, MessageToast) {
         "use strict";
         var that;
         var urlStorage;
@@ -18,7 +19,7 @@ sap.ui.define([
         var URLHelper = mobileLibrary.URLHelper;
         return Controller.extend("studentplacement.controller.student_placement", {
             onInit: function () {
-                // debugger
+                debugger
                 BusyIndicator.show(0);
                 var context;
                 context = this;
@@ -34,29 +35,11 @@ sap.ui.define([
                 this.getView().setModel(oViewModel, "viewModel");
                 this.readCollageData();
             },
-            // handleRouteMatched: function (oEvent) {
-            //     //get UI model from component.js
-            //     this.oPModel = this.getOwnerComponent().getModel("oPropertyModel");
 
-            //     //get user attributes
-            //     this._getUserId();
-            // },
-            // _getUserId: function () {
-            //     $.get("/services/userapi/attributes").done(function (results) {
-            //         // sLoginId = results.login_name;
-            //         // sLoginType = results.user_type;
-            //         sLoginId = '8300894';
-            //         sLoginType = 'partner';
-            //         this._user();
-            //         this.readData();
-            //     }.bind(this));
-            // },
-            // _user: function () {
-            //     this.oModel2.mCustomHeaders.loginid = sLoginId;
-            //     this.oModel2.mCustomHeaders.logintype = sLoginType;
-            // },
             onGoPress: function (oEvent) {
-                // debugger
+
+                var that = this;
+                BusyIndicator.show(0);
                 var collegeInput = this.getView().byId("collegeinput");
                 var courseInput = this.getView().byId("courseinput2");
                 var yearInput = this.getView().byId("yearinput");
@@ -65,10 +48,29 @@ sap.ui.define([
                 var isCollegeEmpty = !collegeInput.getSelectedKey();
                 var isCourseEmpty = !courseInput.getSelectedKeys().length;
                 var isYearEmpty = !yearInput.getDateValue();
+                var isstudentListTableEmpty = !studentListTable.getSelectedItems().length;
 
-                var isAnyFieldEmpty = isCollegeEmpty || isCourseEmpty || isYearEmpty;
 
-                studentListTable.setVisible(!isAnyFieldEmpty);
+                // Check if any filter field is empty
+                if (isCollegeEmpty || isCourseEmpty || isYearEmpty) {
+                    // Hide the table if any filter is empty
+                    studentListTable.setVisible(false);
+                    BusyIndicator.hide();
+                    // Show a message asking the user to enter values in all filters
+                    sap.m.MessageBox.error("Please enter values in all filters.");
+                    var oModel = this.getView().getModel("listModel");
+                    var obj;
+                    oModel.setProperty("/selectedItems", obj);
+                    var oButton = this.byId("sendEmailButton");
+                    oButton.setEnabled(false);
+
+                    return;
+                }
+
+
+
+                // If all filters have values, proceed with filtering and show the table
+                studentListTable.setVisible(true);
 
                 var filters = [];
 
@@ -88,39 +90,37 @@ sap.ui.define([
                 }
 
                 if (!isYearEmpty) {
-                    var yearFilter = new sap.ui.model.Filter("Peryr", sap.ui.model.FilterOperator.EQ, yearInput.getDateValue());
+                    var yearFilter = new sap.ui.model.Filter(
+                        "Peryr",
+                        sap.ui.model.FilterOperator.EQ,
+                        yearInput.getDateValue().getFullYear().toString()
+                    );
                     filters.push(yearFilter);
                 }
 
-                // var that = this;
-                var listmodel;
-                // var listdata = that.getView().getModel(listmodel);
-
-                oDataModel.read("/ZPMIELIGIBLESTSet", {
+                oDataModel.read("/StudentSet", {
                     filters: filters,
                     success: function (Data, response) {
-                        for (var i = 0; i < Data.results.length; i++) {
-                            BusyIndicator.hide();
-                            Data.results[i].OrganizationName = that.getView().byId("collegeinput").getSelectedKey();
-                            Data.results[i].CourseName = that.getView().byId("courseinput2").getSelectedKey();
-                            Data.results[i].yearinput = that.getView().byId("yearinput").getDateValue();
-                        }
+                        BusyIndicator.hide();
                         var listmodel = new sap.ui.model.json.JSONModel(Data);
                         that.getView().setModel(listmodel, "listModel");
+
                         console.log(Data);
                         console.log(response);
                     },
                     error: function (Error) {
+                        BusyIndicator.hide();
                         sap.m.MessageBox.error("Error while expanding");
                     }
                 });
             },
+
             onCollageSelectionChange: function (oEvent) {
-                debugger
+
                 var context = this;
                 var text = oEvent.mParameters.selectedItem.mProperties.key
                 var fil = new sap.ui.model.Filter("OrganizationCode", sap.ui.model.FilterOperator.EQ, text);
-                oDataModel.read("/ZDDL_CDS_1001_itemSet", {
+                oDataModel.read("/CourseSHSet", {
                     filters: [fil],
                     success: function (Data, response) {
                         BusyIndicator.hide();
@@ -146,21 +146,24 @@ sap.ui.define([
 
                     },
                     error: function (Error) {
+                        BusyIndicator.hide();
                         MessageBox.error("error while expanding");
 
                     }
                 });
             },
             readCollageData: function (oEvent) {
-                // debugger
+                BusyIndicator.show(0);
                 var context = this;
                 var OrganizationName;
                 var fil = new sap.ui.model.Filter("OrganizationName", "EQ", OrganizationName);
-                oDataModel.read("/ZDDL_CDS_1001Set", {
+                // var filcours = new sap.ui.model.Filter("CourseName", "EQ", CourseName);
+                oDataModel.read("/CollageSHSet", {
                     filters: [fil],
                     success: function (Data, response) {
                         BusyIndicator.hide();
-                        var Data2 = Data
+                        var Data2 = Data;
+                        var Data3 = Data;
                         var oModel = new JSONModel(Data);
                         context.getView().setModel(oModel, "classcollegeData");
                         that.getView().byId("collegeinput").setSelectedKey();
@@ -197,191 +200,89 @@ sap.ui.define([
                         var oModel = new JSONModel(resObj2);
                         context.getView().setModel(oModel, "classcollegeDatasetcourse");
 
+
+                        var resArr3 = [];
+                        var resObj3 = {
+
+                            resArr3: []
+                        }
+                        Data3.results.filter(function (item) {
+                            var i = resObj3.resArr3.findIndex(x => (x.yearInput == item.yearInput));
+                            if (i <= -1) {
+                                resObj3.resArr3.push(item);
+                            }
+                            return null;
+                        });
+                        // console.log(resArr3)
+                        var oModel = new JSONModel(resObj3);
+                        context.getView().setModel(oModel, "classcollegeDatasetyears");
+
+
                     },
                     error: function (Error) {
+                        BusyIndicator.hide();
                         MessageBox.error("error while expanding");
 
                     }
                 });
             },
+
+
+            onSelectionChange: function (oEvent) {
+
+                var oTable = oEvent.getSource();
+                var aSelectedItems = oTable.getSelectedItems();
+
+                // Store the selected items in the model
+                var oModel = this.getView().getModel("listModel");
+                var aSelectedData = [];
+                var obj;
+
+                if (aSelectedItems.length > 0) {
+                    obj = Object.assign({}, aSelectedItems[0].getBindingContext("listModel").getObject());
+                    obj.NavStudent = [];
+
+                    for (var i = 0; i < aSelectedItems.length; i++) {
+                        var oContext = aSelectedItems[i].getBindingContext("listModel");
+                        var oSelectedData = oContext.getObject();
+                        delete oSelectedData.__metadata;
+                        delete oSelectedData.NavStudent;
+                        obj.NavStudent.push(oSelectedData);
+                    }
+                };
+                MessageToast.show("selecetd Student " + aSelectedItems.length.toString());
+                oModel.setProperty("/selectedItems", obj);
+
+
+                var oButton = this.byId("sendEmailButton");
+                if (aSelectedItems.length > 0) {
+                    oButton.setEnabled(true);
+                } else {
+                    oButton.setEnabled(false);
+                };
+            },
+
+
             onSendMail: function (oEvent) {
-                debugger
+                BusyIndicator.show(0);
+                var oModel = this.getView().getModel("listModel");
+                var oStudentList = oModel.getProperty("/selectedItems");
 
-                //         var oTable = this.getView().byId("studentList_table");
-                // var aSelectedItems = oTable.getSelectedItems();
-
-                // if (aSelectedItems.length === 0) {
-                //     // Handle the case when no rows are selected
-                //     return;
-                // }
-
-                // // Loop through the selected items and extract the data
-                // var aDataToSend = [];
-                // for (var i = 0; i < aSelectedItems.length; i++) {
-                //     var oItem = aSelectedItems[i];
-                //     var oBindingContext = oItem.getBindingContext("listModel");
-                //     var oData = oBindingContext.getObject();
-
-                //     // Extract the relevant data from the item
-                //     var sCollegeOrInstitute = oData.OrganizationName;
-                //     var sStudyOrCourse = oData.CourseName;
-                //     var sAcademicYear = oData.Peryr;
-                //     // ... extract other relevant data here ...
-
-                //     // Add the extracted data to the array
-                //     aDataToSend.push({
-                //         college: sCollegeOrInstitute,
-                //         course: sStudyOrCourse,
-                //         academicYear: sAcademicYear,
-                //         // ... add other relevant data to the object ...
-                //     });
-                // }
-
-                // // Now you have the data from the selected rows in the aDataToSend array
-                // // Implement the email sending logic using the extracted data
-                // // (e.g., use a mail API or any other method to send emails)
-
-                // // For example, you can log the data to the console
-                // console.log("Data to send via email:", aDataToSend);
-
-
-                // Get the table reference
-                var oTable = this.byId("studentList_table");
-
-                // Get the table model data
-                var oModel = oTable.getModel("listModel");
-                var aData = oModel.getProperty("/results");
-
-                // Create a new export object
-                var oExport = new Export({
-                    exportType: new ExportTypeCSV({
-                        separatorChar: ";"
-                    }),
-                    models: oModel,
-                    rows: {
-                        path: "/results"
-                    },
-                    columns: [
-                        {
-                            name: "Collage or Institute",
-                            template: {
-                                content: "{listModel>OrganizationName}"
-                            }
-                        },
-                        {
-                            name: "Study / Course",
-                            template: {
-                                content: "{listModel>CourseName}"
-                            }
-                        },
-                        {
-                            name: "Academic Year",
-                            template: {
-                                content: "{listModel>Peryr}"
-                            }
-                        },
-                        {
-                            name: "Student Number",
-                            template: {
-                                content: "{listModel>Student12}"
-                            }
-                        },
-                        {
-                            name: "Name of Student",
-                            template: {
-                                content: "{listModel>Vorna}{listModel>Midnm}{listModel>Nachn}"
-                            }
-                        },
-                        {
-                            name: "Email sent Data",
-                            template: {
-                                content: "{listModel>StEmail}"
-                            }
-                        },
-                        {
-                            name: "Email Sent by : Placement UserID",
-                            template: {
-                                content: "{listModel>}"
-                            }
-                        }
-
-                    ]
-                });
-
-                // Trigger the export
-                oExport.saveFile().catch(function (oError) {
-                    MessageBox.error("Error when exporting data: " + oError);
-                });
-
-                /******************Sending email using standard workflow Email Task*****************/
-
-                // thatMaster._userMaster();
-                var token = this._fetchToken();
-                this._startInstance(token, Object);
-            },
-            _fetchToken: function () {
-                var token;
-                $.ajax({
-                    url: "/bpmworkflowruntime/rest/v1/xsrf-token",
-                    method: "GET",
-                    async: false,
-                    headers: {
-                        "X-CSRF-Token": "Fetch"
-                    },
-                    success: function (result, xhr, data) {
-                        token = data.getResponseHeader("X-CSRF-Token");
-                    }
-                });
-                return token;
-            },
-            _startInstance: function (token, object) {
-                var mailBody, subject;
-                var arr = [];
-                var cDate = new Date();
-                var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({
-                    pattern: "dd-MM-yyyy"
-                });
-                var dateFormat1 = sap.ui.core.format.DateFormat.getDateInstance({
-                    pattern: "HH:mm a"
-                });
-                var dateFormatted = dateFormat.format(cDate);
-                var dateFormatted1 = dateFormat1.format(cDate);
-                var link = "https://flpnwc-oaezgac8ar.dispatcher.ap1.hana.ondemand.com/sites/PreLit#preLitRFM-Display&/view2/" + thatMaster.sTicketNo;
-                for (var i = 0; i < thatMaster.data.results.length; i++) {
-                    if (object === "A" && thatMaster.data.results[i].ROLE === "RFM" && thatMaster.data.results[i].REGION_CODE === thatMaster.REGION_CODE) {
-                        arr.push(thatMaster.data.results[i].EMAIL_ID);
-                        mailBody = "Dear User, \n\nYou are assigned Ticket No. " + thatMaster.sTicketNo +
-                            " by BM. \nPlease login to the following Pre - Litigation portal link and take necessary action.\n\n" + link +
-                            "\n\nBest Regards\nLegal Team\n\n";
-                        subject = "Ticket sent for RFM Approval";
-                    }
-                    /*if (object === "actC") {
-                        arr.push(thatMaster.data.results[i].LOGIN_ID);
-                        mailBody = "Hi, \n Action is Updated by Branch Manager for Ticket No: " + thatMaster.sTicketNo + " On " + dateFormatted + " at " +
-                            dateFormatted1;
-                        subject = "Branch Manager Action Updated";
-                    }*/
+                if (!oStudentList) {
+                    // No items are selected, handle this scenario (show an error message, etc.)
+                    MessageToast.show("No Student Seleceted");
+                    BusyIndicator.hide();
+                    return;
                 }
-                thatMaster._email = arr;
-                $.ajax({
-                    url: "/bpmworkflowruntime/rest/v1/workflow-instances",
-                    method: "POST",
-                    async: false,
-                    contentType: "application/json",
-                    headers: {
-                        "X-CSRF-Token": token
+
+                oDataModel.create("/StudentSet", oStudentList, {
+                    success: function (Data, response) {
+                        BusyIndicator.hide();
+                        MessageBox.success("Email Has been Sent");
                     },
-                    data: JSON.stringify({
-                        definitionId: "mailtask",
-                        context: {
-                            "to": thatMaster._email,
-                            // "to": "savan.p@intellectbizware.com",
-                            "subject": subject,
-                            "body": mailBody
-                        }
-                    }),
-                    success: function (result, xhr, data) {
-                        // console.log(data);
+                    error: function (Error) {
+                        BusyIndicator.hide();
+                        MessageBox.error("error while expanding");
                     }
                 });
             }

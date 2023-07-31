@@ -7,6 +7,7 @@
           xmlns:card="sap.f.cards"
           xmlns:core="sap.ui.core"
           xmlns:fb="sap.ui.comp.filterbar"
+          xmlns:plugins="sap.m.plugins"
           xmlns:svm="sap.ui.comp.smartvariants" class="sapUiSizeCompact">
 
     <f:DynamicPage showFooter="true" class="sapUiSizeCompact">
@@ -78,23 +79,30 @@
             <Table id="studentList_table"
                    inset="false"
                    visible="false"
-				   mode="MultiSelect"
+				            mode="MultiSelect"
+                   alternateRowColors="true"
+                   growing="true"
+                   growingThreshold="50000"
+                   selectionChange="onSelectionChange"
                    items="{ path: 'listModel>/results'}">
+                   <dependents>
+			<plugins:ColumnResizer/>
+		</dependents>
                 <columns>
                     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" visible="false">
                         <Text text="College or Institute" />
                     </Column>
                     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
-                        <Text text="Study / Course" />
+                        <Text text="SAP Number" />
                     </Column>
                     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
-                        <Text text="Academic Year" />
-                    </Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
-                        <Text text="Student Number" />
-                    </Column>
-					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                         <Text text="Name of Student" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <Text text="Study / Course" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" visible="false">
+                        <Text text="Academic Year" />
                     </Column>
 					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
                         <Text text="Student Mail Id" />
@@ -107,10 +115,10 @@
                     <ColumnListItem vAlign="Middle">
                         <cells>
                             <Text  text="{listModel>OrganizationName}"/>
+                            <Text text="{listModel>Student12}"/>
+                            <Text text="{listModel>Vorna} {listModel>Midnm} {listModel>Nachn}"/>
                             <Text text="{listModel>CourseName}"/>
-                            <Text text="{listModel>Peryr}"/>
-							<Text text="{listModel>Student12}"/>
-                            <Text text="{listModel>Vorna}{listModel>Midnm}{listModel>Nachn}"/>
+                            <Text text="{listModel>Peryr}"/>	
 							<Text text="{listModel>StEmail}"/>
                             <Text text="{listModel>StEmail}"/>
                             
@@ -122,7 +130,7 @@
         <f:footer>
             <OverflowToolbar>
                 <ToolbarSpacer />
-                <Button id="sendEmailButton" type="Emphasized" text="Send Email" press="onSendMail" />
+                <Button id="sendEmailButton" type="Emphasized" text="Send Email" enabled="false" press="onSendMail" visible="true" />
             </OverflowToolbar>
         </f:footer>
     </f:DynamicPage>
