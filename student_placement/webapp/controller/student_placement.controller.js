@@ -92,7 +92,7 @@ sap.ui.define([
                     filters.push(yearFilter);
                 }
 
-                var that = this;
+                // var that = this;
                 var listmodel;
                 // var listdata = that.getView().getModel(listmodel);
 
@@ -102,8 +102,8 @@ sap.ui.define([
                         for (var i = 0; i < Data.results.length; i++) {
                             BusyIndicator.hide();
                             Data.results[i].OrganizationName = that.getView().byId("collegeinput").getSelectedKey();
-                            Data.results[i].CourseName = that.getView().byId("courseinput").getSelectedKey();
-                            // Data.results[i].yearinput = that.getView().byId("yearinput").getDateValue();
+                            Data.results[i].CourseName = that.getView().byId("courseinput2").getSelectedKey();
+                            Data.results[i].yearinput = that.getView().byId("yearinput").getDateValue();
                         }
                         var listmodel = new sap.ui.model.json.JSONModel(Data);
                         that.getView().setModel(listmodel, "listModel");
@@ -206,6 +206,44 @@ sap.ui.define([
             },
             onSendMail: function (oEvent) {
                 debugger
+
+                //         var oTable = this.getView().byId("studentList_table");
+                // var aSelectedItems = oTable.getSelectedItems();
+
+                // if (aSelectedItems.length === 0) {
+                //     // Handle the case when no rows are selected
+                //     return;
+                // }
+
+                // // Loop through the selected items and extract the data
+                // var aDataToSend = [];
+                // for (var i = 0; i < aSelectedItems.length; i++) {
+                //     var oItem = aSelectedItems[i];
+                //     var oBindingContext = oItem.getBindingContext("listModel");
+                //     var oData = oBindingContext.getObject();
+
+                //     // Extract the relevant data from the item
+                //     var sCollegeOrInstitute = oData.OrganizationName;
+                //     var sStudyOrCourse = oData.CourseName;
+                //     var sAcademicYear = oData.Peryr;
+                //     // ... extract other relevant data here ...
+
+                //     // Add the extracted data to the array
+                //     aDataToSend.push({
+                //         college: sCollegeOrInstitute,
+                //         course: sStudyOrCourse,
+                //         academicYear: sAcademicYear,
+                //         // ... add other relevant data to the object ...
+                //     });
+                // }
+
+                // // Now you have the data from the selected rows in the aDataToSend array
+                // // Implement the email sending logic using the extracted data
+                // // (e.g., use a mail API or any other method to send emails)
+
+                // // For example, you can log the data to the console
+                // console.log("Data to send via email:", aDataToSend);
+
 
                 // Get the table reference
                 var oTable = this.byId("studentList_table");

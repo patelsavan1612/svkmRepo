@@ -34,6 +34,8 @@
     "sapuxLayer": "CUSTOMER_BASE",
     "ui5": {
         "dependencies": [
+            "@sap/ux-ui5-tooling",
+            "@sap-ux/ui5-middleware-fe=mokeserver",
             "ui5-task-flatten-library"
         ]
     }

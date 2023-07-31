@@ -7,14 +7,14 @@
           xmlns:card="sap.f.cards"
           xmlns:core="sap.ui.core"
           xmlns:fb="sap.ui.comp.filterbar"
-          xmlns:svm="sap.ui.comp.smartvariants">
+          xmlns:svm="sap.ui.comp.smartvariants" class="sapUiSizeCompact">
 
-    <f:DynamicPage showFooter="true">
+    <f:DynamicPage showFooter="true" class="sapUiSizeCompact">
 
         <f:header>
             <f:DynamicPageHeader>
                 <f:content>
-                    <FlexBox alignItems="End" width="100%">
+                    <FlexBox>
                         <fb:FilterBar id="filterbar"
                                       persistencyKey="myPersKey"
                                       showFilterConfiguration="false"
@@ -27,6 +27,7 @@
                                 <fb:FilterGroupItem name="Select College or Institute"
                                                     label="Select College or Institute"
                                                     groupName="Group1"
+                                                    mandatory="true"
                                                     visibleInFilterBar="true">
                                     <fb:control>
                                         <ComboBox name="Select College or Institute"
@@ -41,6 +42,7 @@
                                                     id="courseinput"
                                                     label="Program of Study / Course"
                                                     groupName="Group1"
+                                                    mandatory="true"
                                                     visible="false"
                                                     visibleInFilterBar="true">
                                     <fb:control>
@@ -55,6 +57,7 @@
                                 <fb:FilterGroupItem name="Choose Year"
                                                     label="Choose Year"
                                                     groupName="Group1"
+                                                    mandatory="true"
                                                     visibleInFilterBar="true">
                                     <fb:control>
                                         <DatePicker id="yearinput" 
@@ -66,8 +69,7 @@
                                 </fb:FilterGroupItem>
                             </fb:filterGroupItems>
                         </fb:FilterBar>
-                        <Button text="Go" press=".onGoPress" />
-                        
+                        <Button text="Go" press=".onGoPress" class="sapUiMediumMarginTop"/>
                     </FlexBox>
                 </f:content>
             </f:DynamicPageHeader>
@@ -79,7 +81,7 @@
 				   mode="MultiSelect"
                    items="{ path: 'listModel>/results'}">
                 <columns>
-                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center" visible="false">
                         <Text text="College or Institute" />
                     </Column>
                     <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
@@ -95,7 +97,10 @@
                         <Text text="Name of Student" />
                     </Column>
 					<Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
-                        <Text text="Email Sent by : Placement UserID" />
+                        <Text text="Student Mail Id" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true" hAlign="Center">
+                        <Text text="Parents Mail Id" />
                     </Column>
                 </columns>
                 <items>
@@ -107,6 +112,7 @@
 							<Text text="{listModel>Student12}"/>
                             <Text text="{listModel>Vorna}{listModel>Midnm}{listModel>Nachn}"/>
 							<Text text="{listModel>StEmail}"/>
+                            <Text text="{listModel>StEmail}"/>
                             
                         </cells>
                     </ColumnListItem>

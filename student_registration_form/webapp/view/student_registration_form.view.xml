@@ -164,14 +164,12 @@
 							</ObjectPageLazyLoader>
 						</blocks>
 					</ObjectPageSubSection>
-<ObjectPageSubSection title="Attachment" titleUppercase="false">
+<ObjectPageSubSection title="Result Attachment" titleUppercase="false">
     <blocks>
-        <m:UploadCollection id="UploadCollection" uploadButtonInvisible="false" noDataDescription="No files"
-            uploadUrl="/VENDOR_PORTAL_DB/VENDOR_PORTAL/XSODATA/VENDOR_PORTAL.xsodata/TenderHeader" items="{path:'attach>/results'}">
+        <m:UploadCollection id="UploadCollection" uploadButtonInvisible="false" noDataDescription="No files">
             <m:items>
                 <m:UploadCollectionItem fileName="{attach>TACTTACH_FILENAME}" press="onClick" mimeType="{attach>TACTTACH_MIMETYPE}"
-                    url="/VENDOR_PORTAL_DB/VENDOR_PORTAL/XSODATA/VENDOR_PORTAL.xsodata/TenderHeader(TREQID='{attach>TREQID}')" visibleEdit="false"
-                    visibleDelete="false" selected="{selected}"></m:UploadCollectionItem>
+                     visibleEdit="false" visibleDelete="false" selected="{selected}"></m:UploadCollectionItem>
             </m:items>
         </m:UploadCollection>
     </blocks>

@@ -14,7 +14,7 @@ builder:
       afterTask: generateCachebusterInfo
       configuration:
         target:
-          url: http://10.3.4.47:8000
+          url: https://sdcwddqapp.svkm.ac.in:44301
           client: "320"
         app:
           name: ZSTD_INVIT
