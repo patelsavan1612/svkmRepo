@@ -15,7 +15,17 @@
             "version": "1.9.6",
             "toolsId": "6bd11d92-a9c3-4b34-9249-89dc996df0dc"
         },
-        "dataSources": {}
+        "dataSources": {
+            "ZODATA_PM_1003_SRV_01": {
+                "uri": "/sap/opu/odata/sap/ZODATA_PM_1003_SRV_01",
+                "type": "OData",
+                "settings": {
+                    "annotations": [],
+                    "localUri": "localService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            }
+        }
     },
     "sap.ui": {
         "technology": "UI5",
@@ -58,6 +68,18 @@
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
                     "bundleName": "studentregistrationform.i18n.i18n"
+                }
+            },
+            "": {
+                "preload": true,
+                "dataSource": "ZODATA_PM_1003_SRV_01",
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
                 }
             }
         },

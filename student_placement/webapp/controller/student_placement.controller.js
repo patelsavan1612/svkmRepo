@@ -250,7 +250,7 @@ sap.ui.define([
                         obj.NavStudent.push(oSelectedData);
                     }
                 };
-                MessageToast.show("selecetd Student " + aSelectedItems.length.toString());
+                MessageToast.show("seleceted Student " + aSelectedItems.length.toString());
                 oModel.setProperty("/selectedItems", obj);
 
 

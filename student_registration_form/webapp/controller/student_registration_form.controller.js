@@ -11,6 +11,7 @@ sap.ui.define([
         "use strict";
         var that;
         var oDataModel;
+        var bIsEditable = true;
         return Controller.extend("studentregistrationform.controller.student_registration_form", {
             onInit: function () {
                 var context;
@@ -19,7 +20,7 @@ sap.ui.define([
                 var studentdata = this.getOwnerComponent().getModel("registrationproperty").getData();
                 var studentmodel = new JSONModel(studentdata);
                 this.getView().setModel(studentmodel, "cModel");
-                oDataModel = this.getOwnerComponent().getModel("oData");
+                oDataModel = this.getOwnerComponent().getModel();
                 that.listdata = this.getOwnerComponent().getModel("");
                 // this.onDataSave();
                 this.readStudentRegistrationData();
@@ -28,6 +29,7 @@ sap.ui.define([
                 this.attachInputChangeEventListeners(this.oQualificationTable);
                 this.attachInputChangeEventListeners(this.oInternshipTable);
                 this.toggleFooterVisibility();
+                // this.setTableEditable(true);
 
 
             },
@@ -217,19 +219,41 @@ sap.ui.define([
                 var newRow = templateRow.clone();
                 var rowCount = table.getItems().length;
                 var srNo = rowCount + 1;
+
+                // Set the text for the first cell to the serial number (srNo)
                 newRow.getCells()[0].setText(srNo.toString());
+
+                // Clear the content of the other cells in the new row (assuming they are sap.m.Input or sap.m.TextArea controls)
+                for (var i = 1; i < newRow.getCells().length; i++) {
+                    var cell = newRow.getCells()[i];
+                    if (cell instanceof sap.m.Input || cell instanceof sap.m.TextArea) {
+                        cell.setValue(""); // Set the value of Input and TextArea controls to an empty string
+                    }
+                }
+
                 table.addItem(newRow);
             },
             onAddButtonClickip: function () {
-
                 var table = this.getView().byId("ip_Details");
                 var templateRow = this.getView().byId("templateRowIp");
                 var newRow = templateRow.clone();
                 var rowCount = table.getItems().length;
                 var srNo = rowCount + 1;
+
+                // Set the text for the first cell to the serial number (srNo)
                 newRow.getCells()[0].setText(srNo.toString());
+
+                // Clear the content of the other cells in the new row (assuming they are sap.m.Input or sap.m.TextArea controls)
+                for (var i = 1; i < newRow.getCells().length; i++) {
+                    var cell = newRow.getCells()[i];
+                    if (cell instanceof sap.m.Input || cell instanceof sap.m.TextArea) {
+                        cell.setValue(""); // Set the value of Input and TextArea controls to an empty string
+                    }
+                }
+
                 table.addItem(newRow);
             },
+
             handleUploadButtonPress: function (event) {
                 // Get the source of the event (the button)
                 var button = event.getSource();
@@ -253,15 +277,46 @@ sap.ui.define([
                     // Add any other error handling or feedback as needed
                 }
             },
-            onSubmit: function () {
-                MessageBox.warning("Are you sure you want to submit this information.", {
-                    actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
-                    emphasizedAction: MessageBox.Action.OK,
-                    onClose: function (sAction) {
-                        MessageToast.show("Action selected: " + sAction);
-                    }
-                });
-            },
+            // onSubmit: function () {
+            //     debugger
+            //     MessageBox.warning("Are you sure you want to submit this information.", {
+            //         actions: [MessageBox.Action.OK, MessageBox.Action.CANCEL],
+            //         emphasizedAction: MessageBox.Action.OK,
+            //         onClose: function (sAction) {
+            //             if (sAction === MessageBox.Action.OK) {
+            //                 // When OK is clicked, set the tables as not editable
+            //                 this.setTableEditable(false);
+            //                 MessageToast.show("Data submitted successfully.");
+            //             } else {
+            //                 MessageToast.show("Action canceled.");
+            //             }
+            //         }.bind(this)
+            //     });
+            // },
+            // setTableEditable: function (editable) {
+            //     debugger
+            //     bIsEditable = editable;
+
+            //     // Set the editable property for each row in "Qalification" table
+            //     var oQualificationTable = this.byId("Qalification");
+            //     oQualificationTable.getItems().forEach(function (oRow) {
+            //         oRow.getCells().forEach(function (oCell) {
+            //             if (oCell instanceof sap.m.Input || oCell instanceof sap.m.Select || oCell instanceof sap.m.DateRangeSelection) {
+            //                 oCell.setEditable(editable);
+            //             }
+            //         });
+            //     });
+
+            //     // Set the editable property for each row in "ip_Details" table
+            //     var oInternshipTable = this.byId("ip_Details");
+            //     oInternshipTable.getItems().forEach(function (oRow) {
+            //         oRow.getCells().forEach(function (oCell) {
+            //             if (oCell instanceof sap.m.Input || oCell instanceof sap.m.Select || oCell instanceof sap.m.DateRangeSelection) {
+            //                 oCell.setEditable(editable);
+            //             }
+            //         });
+            //     });
+            // },
 
             toggleFooter: function () {
                 var oObjectPageLayout = this.byId("ObjectPageLayout");

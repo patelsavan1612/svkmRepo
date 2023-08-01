@@ -148,7 +148,7 @@
 						<m:Table id="Qalification"   class="sapUiSizeCompact">
 						<m:columns>
 							<m:Column hAlign="Begin" width="5rem">
-								<m:Label text="SR No." design="Bold" wrapping="true" required="true"/>
+								<m:Label text="SR No." design="Bold" wrapping="true"/>
 							</m:Column>
 							<m:Column hAlign="Begin" width="14rem">
 								<m:Label text="Name of additional qualification" wrapping="true" design="Bold" required="true"/>
@@ -176,12 +176,13 @@
 									<m:Input />
 									<m:DateRangeSelection />
   									<u:FileUploader
-			id="fileUploader"
-			name="myFileUpload"
-			uploadUrl="upload/"
-			placeholder="Choose a file for Upload..."
-			tooltip="Upload your file to the local server"
-			uploadComplete="handleUploadComplete"/>
+										id="fileUploader"
+										name="myFileUpload"
+										uploadUrl="upload/"
+										placeholder="Choose a file for Upload..."
+										tooltip="Upload your file to the local server"
+										buttonText="Upload"
+										uploadComplete="handleUploadComplete"/>
   									<!-- <m:Button icon="sap-icon://upload" press="handleUploadButtonPress" /> -->
 									
 								</m:cells>
@@ -210,7 +211,7 @@
 							<m:Table id="ip_Details" width="auto"  class="sapUiSizeCompact">
 							<m:columns>
 							<m:Column hAlign="Begin" width="5rem">
-								<m:Label text="SR No." design="Bold" wrapping="true" required="true"/>
+								<m:Label text="SR No." design="Bold" wrapping="true"/>
 							</m:Column>
 							<m:Column hAlign="Center" width="14rem">
 								<m:Label text="Details of Internships" design="Bold" wrapping="true" required="true"/>
@@ -228,10 +229,10 @@
 								<m:Label text="Designation of the student during internship" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
 							<m:Column hAlign="Center" width="14rem">
-								<m:Label text="Offer letter or experience certificate of last 2 internships" wrapping="true" design="Bold" required="true"/>
+								<m:Label text="Higher education - immediately post- PG, When? Please provide a period" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
 							<m:Column hAlign="Center" width="14rem">
-								<m:Label text="Higher education - immediately post- PG, When? Please provide a period" wrapping="true" design="Bold" required="true"/>
+								<m:Label text="Offer letter or experience certificate of last 2 internships" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
 						</m:columns>
 						<m:items>
@@ -243,14 +244,15 @@
 														<m:DateRangeSelection />
 														<m:Input />
 														<m:Input />
-														<u:FileUploader
-			id="fileUploaderIntern"
-			name="myFileUpload"
-			uploadUrl="upload/"
-			placeholder="Choose a file for Upload..."
-			tooltip="Upload your file to the local server"
-			uploadComplete="handleUploadComplete"/>
 														<m:Input />
+														<u:FileUploader
+															id="fileUploaderIntern"
+															name="myFileUpload"
+															uploadUrl="upload/"
+															placeholder="Choose a file for Upload..."
+															tooltip="Upload your file to the local server"
+															buttonText="Upload"
+															uploadComplete="handleUploadComplete"/>
 													</m:cells>
 												</m:ColumnListItem>
 											</m:items>
