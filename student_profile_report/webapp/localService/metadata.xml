@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZIODATA_PM_1005_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="zist_pm_9001" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Student12"/>
+                    <PropertyRef Name="Stobjid"/>
+                </Key>
+                <Property Name="Dob" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date of Birth" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OrganizationName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Organization Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int1Post" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Internship 1 Job Titile" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int2Post" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Internship 2 Job Titile" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int3Post" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Internship 3 Job Titile" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int4Post" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Internship 4 Job Titile" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int5Post" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Internship 5 Job Titile" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj5Post" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Project5 Job Titile" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj1Post" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Project1 Job Titile" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj2Post" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Project2 Job Titile" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj3Post" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Project3 Job Titile" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj4Post" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Project4 Job Titile" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SscPassDate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="SSC Passing Date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="HscPassDate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="HSC Passing Date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DiplomaPassDate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Diploma passing date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DegreePassDate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Degree Passing date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="PostDegreePassDate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Post Graduation passing date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int1Sdate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Intership1 Start date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int1Edate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Intership1 End date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int2Sdate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Intership2 Start date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int2Edate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Intership2 End date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int3Sdate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Intership3 Start date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int3Edate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Intership3 End date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int4Sdate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Intership4 Start date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int4Edate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Intership4 End date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int5Sdate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Intership5 Start date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int5Edate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Intership5 End date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj5Sdate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Project5 Start date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj5Edate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Project5 End date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj1Sdate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Project1 Start date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj1Edate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Project1 End date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj2Sdate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Project2 Start date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj2Edate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Project2 End date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj3Sdate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Project3 Start date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj3Edate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Project3 End date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj4Sdate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Project4 Start date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj4Edate" Type="Edm.DateTime" Precision="7" sap:unicode="true" sap:label="Project4 End date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SscTotMarks" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="SSC Total Marks (Out Of)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SscMarksObt" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="SSC Obtained Marks" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SscPerc" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="SSC (%)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="HscTotMarks" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="HSC Total Marks (Out Of)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="HscMarksObt" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="HSC Obtained Marks" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="HscPerc" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="HSC (%)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DiplomaTotMarks" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="DIPLOMA Total Marks (Out Of)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DiplomaMarksObt" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="Diploma Marks Obtained" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DiplomaPerc" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="DIPLOMA (%)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DegreeTotMarks" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="DEGREE Total Marks (Out Of)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DegreeMarksObt" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="DEGREE Obtained Marks" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DegreePerc" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="DEGREE(%)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="PostDegreeTotMarks" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="POST Graduation Total Marks (Out Of)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="PostDegreeMarksObt" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="POST Graduation Obtained Marks" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="PostDegreePerc" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="5" sap:unicode="false" sap:label="POST Graduation (%)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Student12" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Student Number" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Stobjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Student ID" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Codednoteidt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Coded note text" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CourseName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Comment" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="First name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Last name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Fullname" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Pemail" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="Personal E-Mail Address" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Mobnumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Mobile no." sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Pincode" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Postal Code" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Response" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Placement process Participation YES /NO" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Remark" Type="Edm.String" Nullable="false" MaxLength="250" sap:unicode="false" sap:label="Reason for non participation in placement process" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SscBoad" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="SSC Board" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="SscSchool" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="SSC School Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="HscBoad" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="HSC Board" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="HscSchool" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="HSC College Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DiplomaBoad" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="DIPLOMA UNIVERSITY" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DiplomaSchool" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Diploma College Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DiplomaSpecli" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="DIPLOMA NAME / SPECIALIZATION" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DegreeBoad" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="DEGREE UNIVERSITY" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DegreeSchool" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Degree College Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="DegreeSpecli" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="DEGREE SPECIALIZATION" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="PostDegreeBoad" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="POST Graduation DEGREE UNIVERSITY" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="PostDegreeSchool" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Post Graduation College Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="PostDegreeSpecli" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="POST Graduation SPECIALIZATION" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int1Detail" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Internship 1 Responsibilities" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int1Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Internship 1  Company Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int2Detail" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Internship 2 Responsibilities" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int2Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Internship 2 Company Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int3Detail" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Internship 3 Responsibilities" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int3Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Internship 3 Company Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int4Detail" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Internship 4 Responsibilities" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int4Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Internship 4 Company Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int5Detail" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Internship 5 Responsibilities" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Int5Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Internship 5 Company Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj5Detail" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Project5 Responsibilities" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj5Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Project5 Company Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj1Detail" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Project1 Responsibilities" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj1Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Project1 Company Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj2Detail" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Project2 Responsibilities" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj2Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Project2 Company Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj3Detail" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Project3 Responsibilities" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj3Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Project3 Company Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj4Detail" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Project4 Responsibilities" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Proj4Butxt" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Project4 Company Name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="CollageSH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OrganizationCode"/>
+                </Key>
+                <Property Name="OrganizationCode" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="OrganizationName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="CourseSH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OrganizationCode"/>
+                    <PropertyRef Name="CourseCode"/>
+                </Key>
+                <Property Name="OrganizationCode" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CourseCode" Type="Edm.String" Nullable="false" MaxLength="45" sap:unicode="false" sap:label="ID rel.object" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CourseName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZIODATA_PM_1005_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="zist_pm_9001Set" EntityType="ZIODATA_PM_1005_SRV.zist_pm_9001" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="CollageSHSet" EntityType="ZIODATA_PM_1005_SRV.CollageSH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="CourseSHSet" EntityType="ZIODATA_PM_1005_SRV.CourseSH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://SDCWDDQAPP.SVKM.AC.IN:44301/sap/opu/odata/sap/ZIODATA_PM_1005_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://SDCWDDQAPP.SVKM.AC.IN:44301/sap/opu/odata/sap/ZIODATA_PM_1005_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZODATA_PM_1001_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="StudentHead" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OObjid"/>
+                    <PropertyRef Name="Perid"/>
+                    <PropertyRef Name="Peryr"/>
+                    <PropertyRef Name="Progtype"/>
+                    <PropertyRef Name="ScObjid"/>
+                    <PropertyRef Name="Sess"/>
+                    <PropertyRef Name="StObjid"/>
+                    <PropertyRef Name="Timelimit"/>
+                </Key>
+                <Property Name="OObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Organization ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Perid" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Acad. Session" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Peryr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Acad. Year" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Progtype" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Program Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ScObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Program Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sess" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Acad. Session" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Timelimit" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Time Limit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Begda" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Endda" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RegBegda" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Start date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Regdate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Reg. On" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RegEndda" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CalGuid" Type="Edm.Guid" sap:unicode="false" sap:label="Calendar GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AcadSess" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Acad. Session" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AcadYear" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Acad. Year" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CourseName" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Course Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Midnm" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Middle name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nachn" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Last name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrganizationName" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Partner" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StEmail" Type="Edm.String" MaxLength="241" sap:unicode="false" sap:label="E-Mail Address" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stobjid" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Student ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Student12" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Student Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vorna" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="First name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PtEmail" Type="Edm.String" MaxLength="241" sap:unicode="false" sap:label="E-Mail Address" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="ZPMIELIGIBLEST" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OObjid"/>
+                    <PropertyRef Name="ScObjid"/>
+                    <PropertyRef Name="Peryr"/>
+                    <PropertyRef Name="Perid"/>
+                    <PropertyRef Name="Timelimit"/>
+                    <PropertyRef Name="StObjid"/>
+                    <PropertyRef Name="Progtype"/>
+                    <PropertyRef Name="Sess"/>
+                </Key>
+                <Property Name="OObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Organization ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ScObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Program Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Peryr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Acad. Year" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Perid" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Acad. Session" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Timelimit" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Time Limit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Progtype" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Program Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sess" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Acad. Session" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Begda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Endda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CalGuid" Type="Edm.Guid" Nullable="false" sap:unicode="false" sap:label="Calendar GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stobjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Student ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Student12" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Student Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Partner" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vorna" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="First name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nachn" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Last name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Midnm" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Middle name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AcadYear" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Acad. Year" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AcadSess" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Acad. Session" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RegBegda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Start date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RegEndda" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Regdate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Reg. On" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StEmail" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="E-Mail Address" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Student" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OObjid"/>
+                    <PropertyRef Name="Perid"/>
+                    <PropertyRef Name="Peryr"/>
+                    <PropertyRef Name="Progtype"/>
+                    <PropertyRef Name="ScObjid"/>
+                    <PropertyRef Name="Sess"/>
+                    <PropertyRef Name="StObjid"/>
+                    <PropertyRef Name="Timelimit"/>
+                </Key>
+                <Property Name="AcadSess" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Acad. Session" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AcadYear" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Acad. Year" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Begda" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label=" Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CalGuid" Type="Edm.Guid" sap:unicode="false" sap:label="Calendar GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CourseName" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Course Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Endda" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label=" End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Midnm" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Middle name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nachn" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Last name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Organization ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrganizationName" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Partner" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Perid" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Acad. Session" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Peryr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Acad. Year" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Progtype" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Program Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RegBegda" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label=" Start date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Regdate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label=" Reg. On" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RegEndda" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label=" End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ScObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Program Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sess" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Acad. Session" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StEmail" Type="Edm.String" MaxLength="241" sap:unicode="false" sap:label="E-Mail Address" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Stobjid" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Student ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Student12" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Student Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Timelimit" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Time Limit" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vorna" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="First name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PtEmail" Type="Edm.String" MaxLength="241" sap:unicode="false" sap:label="E-Mail Address" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="NavStudent" Relationship="ZODATA_PM_1001_SRV.AssStudent" FromRole="FromRole_AssStudent" ToRole="ToRole_AssStudent"/>
+            </EntityType>
+            <EntityType Name="CollageSH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OrganizationCode"/>
+                </Key>
+                <Property Name="OrganizationCode" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrganizationName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="CourseSH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OrganizationCode"/>
+                    <PropertyRef Name="CourseCode"/>
+                </Key>
+                <Property Name="OrganizationCode" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CourseCode" Type="Edm.String" Nullable="false" MaxLength="45" sap:unicode="false" sap:label="ID rel.object" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CourseName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Short" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Object Abbreviation" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="AssStudent" sap:content-version="1">
+                <End Type="ZODATA_PM_1001_SRV.Student" Multiplicity="1" Role="FromRole_AssStudent"/>
+                <End Type="ZODATA_PM_1001_SRV.StudentHead" Multiplicity="*" Role="ToRole_AssStudent"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_AssStudent">
+                        <PropertyRef Name="Sess"/>
+                        <PropertyRef Name="Progtype"/>
+                        <PropertyRef Name="StObjid"/>
+                        <PropertyRef Name="Timelimit"/>
+                        <PropertyRef Name="Perid"/>
+                        <PropertyRef Name="Peryr"/>
+                        <PropertyRef Name="ScObjid"/>
+                        <PropertyRef Name="OObjid"/>
+                    </Principal>
+                    <Dependent Role="ToRole_AssStudent">
+                        <PropertyRef Name="Sess"/>
+                        <PropertyRef Name="Progtype"/>
+                        <PropertyRef Name="StObjid"/>
+                        <PropertyRef Name="Timelimit"/>
+                        <PropertyRef Name="Perid"/>
+                        <PropertyRef Name="Peryr"/>
+                        <PropertyRef Name="ScObjid"/>
+                        <PropertyRef Name="OObjid"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZODATA_PM_1001_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="StudentHeadSet" EntityType="ZODATA_PM_1001_SRV.StudentHead" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ZPMIELIGIBLESTSet" EntityType="ZODATA_PM_1001_SRV.ZPMIELIGIBLEST" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="StudentSet" EntityType="ZODATA_PM_1001_SRV.Student" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="CollageSHSet" EntityType="ZODATA_PM_1001_SRV.CollageSH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="CourseSHSet" EntityType="ZODATA_PM_1001_SRV.CourseSH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="AssStudentSet" Association="ZODATA_PM_1001_SRV.AssStudent" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="StudentSet" Role="FromRole_AssStudent"/>
+                    <End EntitySet="StudentHeadSet" Role="ToRole_AssStudent"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="https://SDCWDDQAPP.SVKM.AC.IN:44301/sap/opu/odata/sap/ZODATA_PM_1001_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://SDCWDDQAPP.SVKM.AC.IN:44301/sap/opu/odata/sap/ZODATA_PM_1001_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

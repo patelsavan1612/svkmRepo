@@ -3,14 +3,14 @@
  */
 
 sap.ui.define([
-    "sap/ui/core/UIComponent",
-    "sap/ui/Device",
-    "studentregistrationform/model/models"
-],
+        "sap/ui/core/UIComponent",
+        "sap/ui/Device",
+        "studentprofilereport/model/models"
+    ],
     function (UIComponent, Device, models) {
         "use strict";
 
-        return UIComponent.extend("studentregistrationform.Component", {
+        return UIComponent.extend("studentprofilereport.Component", {
             metadata: {
                 manifest: "json"
             },
@@ -30,7 +30,9 @@ sap.ui.define([
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
 
-                this.setModel(models.createModel(), "viewModel");
+                this.setModel(models.createModel(), "placementdataproperty");
+
+                this.setModel(models.createListModel(), "placementdataList");
             }
         });
     }

@@ -16,8 +16,8 @@
             "toolsId": "6bd11d92-a9c3-4b34-9249-89dc996df0dc"
         },
         "dataSources": {
-            "ZODATA_PM_1003_SRV_01": {
-                "uri": "/sap/opu/odata/sap/ZODATA_PM_1003_SRV_01",
+            "ZIODATA_PM_1004_SRV": {
+                "uri": "/sap/opu/odata/sap/ZIODATA_PM_1004_SRV",
                 "type": "OData",
                 "settings": {
                     "annotations": [],
@@ -46,6 +46,11 @@
     },
     "sap.ui5": {
         "flexEnabled": true,
+        "services": {
+            "ShellUIService": {
+                "factoryName": "sap.ushell.ui5service.ShellUIService"
+            }
+        },
         "dependencies": {
             "minUI5Version": "1.116.0",
             "libs": {
@@ -72,7 +77,7 @@
             },
             "": {
                 "preload": true,
-                "dataSource": "ZODATA_PM_1003_SRV_01",
+                "dataSource": "ZIODATA_PM_1004_SRV",
                 "settings": {
                     "defaultBindingMode": "TwoWay",
                     "defaultCountMode": "Inline",

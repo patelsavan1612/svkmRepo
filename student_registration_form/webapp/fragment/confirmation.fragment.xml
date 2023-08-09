@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      id="helloDialog"
+      title="Registration Confirmation"  >
+      <Text id="otext" text="" class="sapUiTinyMarginBegin sapUiTinyMarginEnd"/>
+      <buttons>
+      <Button text="Accept" type="Accept" press="onAccept"></Button>
+      <Button text="Reject" type="Reject" press="regectfrag"></Button>
+      </buttons>
+   </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,16 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      id="helloDialog2"
+      title="Reason for Rejection" contentWidth="150px" contentHeight="100px" resizable="true">
+      <VBox class="sapUiTinyMarginTop">
+      <Label text="Comment" design="Bold" class="sapUiTinyMarginBegin"></Label>
+      <TextArea id="oArea"  class="sapUiTinyMarginBegin" growing="true"  width="90%" />
+      </VBox>
+      <buttons>
+      <Button text="Submit" type="Accept" press="NavHome"></Button>
+      <Button text="Cancel" type="Reject" press="openDialog"></Button>
+      </buttons>
+   </Dialog>
+</core:FragmentDefinition>

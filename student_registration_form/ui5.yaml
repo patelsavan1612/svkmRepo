@@ -17,11 +17,11 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /sap
-            url: https://sdcwddqapp.svkm.ac.in:44301
-            client: '320'
-          - path: /sap
-            url: https://sdcwddqapp.svkm.ac.in:44301
-            client: '320'
+            url: https://sdcs4qdbap.svkm.ac.in:44300
+            client: '300'
+          - path: /sap/opu/odata/sap/ZIODATA_PM_1004_SRV
+            url: https://sdcs4qdbap.svkm.ac.in:44300
+            client: '300'
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

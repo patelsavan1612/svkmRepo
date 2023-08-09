@@ -1,7 +1,7 @@
 {
     "_version": "1.49.0",
     "sap.app": {
-        "id": "studentplacement",
+        "id": "studentprofilereport",
         "type": "application",
         "i18n": "i18n/i18n.properties",
         "applicationVersion": {
@@ -12,12 +12,12 @@
         "resources": "resources.json",
         "sourceTemplate": {
             "id": "@sap/generator-fiori:basic",
-            "version": "1.9.6",
-            "toolsId": "c4cce3e9-f128-4282-b521-bbf306085daa"
+            "version": "1.10.3",
+            "toolsId": "26979554-668b-46ee-ad74-1ccacf861caf"
         },
         "dataSources": {
-            "ZODATA_PM_1001_SRV": {
-                "uri": "/sap/opu/odata/sap/ZODATA_PM_1001_SRV",
+            "ZIODATA_PM_1005_SRV": {
+                "uri": "/sap/opu/odata/sap/ZIODATA_PM_1005_SRV",
                 "type": "OData",
                 "settings": {
                     "annotations": [],
@@ -41,13 +41,12 @@
             "desktop": true,
             "tablet": true,
             "phone": true
-        },
-        "fullWidth": true
+        }
     },
     "sap.ui5": {
         "flexEnabled": true,
         "dependencies": {
-            "minUI5Version": "1.90.7",
+            "minUI5Version": "1.116.0",
             "libs": {
                 "sap.m": {},
                 "sap.ui.core": {},
@@ -67,12 +66,12 @@
             "i18n": {
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
-                    "bundleName": "studentplacement.i18n.i18n"
+                    "bundleName": "studentprofilereport.i18n.i18n"
                 }
             },
             "": {
                 "preload": true,
-                "dataSource": "ZODATA_PM_1001_SRV",
+                "dataSource": "ZIODATA_PM_1005_SRV",
                 "settings": {
                     "defaultBindingMode": "TwoWay",
                     "defaultCountMode": "Inline",
@@ -95,32 +94,32 @@
                 "routerClass": "sap.m.routing.Router",
                 "viewType": "XML",
                 "async": true,
-                "viewPath": "studentplacement.view",
+                "viewPath": "studentprofilereport.view",
                 "controlAggregation": "pages",
                 "controlId": "app",
                 "clearControlAggregation": false
             },
             "routes": [
                 {
-                    "name": "Routestudent_placement",
+                    "name": "RouteMasterPg",
                     "pattern": ":?query:",
                     "target": [
-                        "Targetstudent_placement"
+                        "TargetMasterPg"
                     ]
                 }
             ],
             "targets": {
-                "Targetstudent_placement": {
+                "TargetMasterPg": {
                     "viewType": "XML",
                     "transition": "slide",
                     "clearControlAggregation": false,
-                    "viewId": "student_placement",
-                    "viewName": "student_placement"
+                    "viewId": "MasterPg",
+                    "viewName": "MasterPg"
                 }
             }
         },
         "rootView": {
-            "viewName": "studentplacement.view.App",
+            "viewName": "studentprofilereport.view.App",
             "type": "XML",
             "async": true,
             "id": "App"

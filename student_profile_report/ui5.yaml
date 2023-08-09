@@ -2,7 +2,7 @@
 
 specVersion: "2.6"
 metadata:
-  name: studentplacement
+  name: studentprofilereport
 type: application
 server:
   customMiddleware:
@@ -17,11 +17,8 @@ server:
           url: https://ui5.sap.com
         backend:
           - path: /sap
-            url: https://sdcwddqapp.svkm.ac.in:44300
-            client: '300'
-          - path: /sap/opu/odata/sap/ZODATA_PM_1001_SRV
-            url: https://sdcwddqapp.svkm.ac.in:44300
-            client: '300'
+            url: https://sdcwddqapp.svkm.ac.in:44301
+            client: '320'
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -31,5 +28,5 @@ server:
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: studentplacement
+        component: studentprofilereport
         ui5Theme: sap_horizon

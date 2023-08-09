@@ -1,6 +1,6 @@
-<mvc:View xmlns:layout="sap.ui.layout"
-          controllerName="studentplacement.controller.student_placement"
-          xmlns:mvc="sap.ui.core.mvc"
+<mvc:View controllerName="studentprofilereport.controller.MasterPg"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:layout="sap.ui.layout"
           displayBlock="true"
           xmlns="sap.m"
           xmlns:f="sap.f"
@@ -8,8 +8,8 @@
           xmlns:core="sap.ui.core"
           xmlns:fb="sap.ui.comp.filterbar"
           xmlns:plugins="sap.m.plugins"
-          xmlns:svm="sap.ui.comp.smartvariants" class="sapUiSizeCompact">
-
+          xmlns:svm="sap.ui.comp.smartvariants" 
+          xmlns:t="sap.ui.table" class="sapUiSizeCompact">
     <f:DynamicPage showFooter="true" class="sapUiSizeCompact">
 
         <f:header>
@@ -55,6 +55,20 @@
                                         </MultiComboBox>
                                     </fb:control>
                                 </fb:FilterGroupItem>
+                                <fb:FilterGroupItem name="Student SAP Number"
+                                                    label="Student SAP Number"
+                                                    visible="false"
+                                                    groupName="GroupStudent"
+                                                    visibleInFilterBar="true">
+                                    <fb:control>
+                                        <ComboBox name="Select College or Institute"
+                                                    id="studentSapNumber"
+                                                  selectionChange=".onStudentNumberChange"
+                                                  items="{ path: 'classcollegeDataset>/resArr', templateShareable: true }">
+                                            <core:Item key="{classcollegeDataset>Student12}" text="{classcollegeDataset>Student12}" />
+                                        </ComboBox>
+                                    </fb:control>
+                                </fb:FilterGroupItem>
                                 <fb:FilterGroupItem name="Choose Year"
                                                     label="Choose Year"
                                                     groupName="Group1"
@@ -76,10 +90,10 @@
             </f:DynamicPageHeader>
         </f:header>
         <f:content>
-            <Table id="studentList_table"
+            <!-- <Table id="studentList_table"
                    inset="false"
                    visible="false"
-				            mode="MultiSelect"
+				    mode="MultiSelect"
                    alternateRowColors="true"
                    growing="true"
                    growingThreshold="50000"
@@ -125,14 +139,100 @@
                         </cells>
                     </ColumnListItem>
                 </items>
-            </Table>
+            </Table> -->
+
+
+            	<t:Table
+                id="studentList_table1"
+				rows="{path: 'listModel>/results'}"
+				selectionMode="MultiToggle"
+				visibleRowCount="10"
+                visible="false"
+				paste="onPaste"
+				ariaLabelledBy="title">
+				<t:extension>
+					<OverflowToolbar style="Clear">
+						<Title id="title" text="Products"/>
+                        	<ToolbarSpacer/>
+									<Button icon="sap-icon://excel-attachment" tooltip="Table Document" press="onExport"/>
+								
+					</OverflowToolbar>
+				</t:extension>
+				<t:columns>
+					<t:Column width="11rem">
+						<Label text="First Name" />
+						<t:template>
+							<Text text="{listModel>FirstName}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="11rem">
+						<Label text="Last Name" />
+						<t:template>
+							<Text text="{listModel>LastName}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="11rem">
+						<Label text="Course Name" />
+						<t:template>
+							<Text text="{listModel>CourseName}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="11rem">
+						<Label text="Personal E-Mail Address" />
+						<t:template>
+							<Text text="{listModel>Pemail}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="11rem">
+						<Label text="Coded note text" />
+						<t:template>
+							<Text text="{listModel>Codednoteidt}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="11rem">
+						<Label text="Placement process Participation YES /NO" />
+						<t:template>
+							<Text text="{listModel>Response}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="11rem">
+						<Label text="Reason for non participation in placement process" />
+						<t:template>
+							<Text text="{listModel>Remark}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="11rem">
+						<Label text="SSC Board" />
+						<t:template>
+							<Text text="{listModel>SscBoad}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="11rem">
+						<Label text="SSC Obtained Marks" />
+						<t:template>
+							<Text text="{listModel>SscMarksObt}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
+                    <t:Column width="11rem">
+						<Label text="SSC (%)" />
+						<t:template>
+							<Text text="{listModel>SscPerc}" wrapping="false" />
+						</t:template>
+					</t:Column>
+                    
+				</t:columns>
+			</t:Table>
         </f:content>
-        <f:footer>
-            <OverflowToolbar>
-                <ToolbarSpacer />
-                <Button id="sendEmailButton" type="Emphasized" text="Send Email" enabled="false" press="onSendMail" visible="true" />
-            </OverflowToolbar>
-        </f:footer>
+       
     </f:DynamicPage>
 
 </mvc:View>

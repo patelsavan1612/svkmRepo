@@ -3,21 +3,22 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "sap/m/MessageBox",
     'sap/m/library',
-    "sap/ui/core/util/Export",
-    "sap/ui/core/util/ExportTypeCSV",
     'sap/ui/core/BusyIndicator',
+    'sap/ui/export/library',
+    'sap/ui/export/Spreadsheet',
     'sap/m/MessageToast'
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller, JSONModel, MessageBox, mobileLibrary, Export, ExportTypeCSV, BusyIndicator, MessageToast) {
+    function (Controller, JSONModel, MessageBox, mobileLibrary, BusyIndicator, exportLibrary, Spreadsheet, MessageToast) {
         "use strict";
+        var EdmType = exportLibrary.EdmType;
         var that;
         var urlStorage;
         var oDataModel;
         var URLHelper = mobileLibrary.URLHelper;
-        return Controller.extend("studentplacement.controller.student_placement", {
+        return Controller.extend("studentprofilereport.controller.MasterPg", {
             onInit: function () {
                 //debugger
                 BusyIndicator.show(0);
@@ -28,7 +29,7 @@ sap.ui.define([
                 var placementmodel = new JSONModel(placementdata);
                 this.getView().setModel(placementmodel, "cModel");
                 oDataModel = this.getOwnerComponent().getModel();
-                that.listdata = this.getOwnerComponent().getModel("ZODATA_PM_1001_SRV");
+                that.listdata = this.getOwnerComponent().getModel("ZIODATA_PM_1005_SRV");
                 var oViewModel = new sap.ui.model.json.JSONModel({
                     minDate: new Date(2022, 1, 1)
                 });
@@ -40,15 +41,16 @@ sap.ui.define([
                 debugger
                 var that = this;
                 BusyIndicator.show(0);
+                // that.onread()
                 var collegeInput = this.getView().byId("collegeinput");
                 var courseInput = this.getView().byId("courseinput2");
                 var yearInput = this.getView().byId("yearinput");
-                var studentListTable = this.getView().byId("studentList_table");
+                var studentListTable = this.getView().byId("studentList_table1");
 
                 var isCollegeEmpty = !collegeInput.getSelectedKey();
                 var isCourseEmpty = !courseInput.getSelectedKeys().length;
                 var isYearEmpty = !yearInput.getDateValue();
-                var isstudentListTableEmpty = !studentListTable.getSelectedItems().length;
+                var isstudentListTableEmpty = !studentListTable.getSelectedIndices().length;
 
 
                 // Check if any filter field is empty
@@ -61,8 +63,8 @@ sap.ui.define([
                     var oModel = this.getView().getModel("listModel");
                     var obj;
                     oModel.setProperty("/selectedItems", obj);
-                    var oButton = this.byId("sendEmailButton");
-                    oButton.setEnabled(false);
+                    // var oButton = this.byId("sendEmailButton");
+                    // oButton.setEnabled(false);
 
                     return;
                 }
@@ -98,8 +100,27 @@ sap.ui.define([
                     filters.push(yearFilter);
                 }
 
-                oDataModel.read("/StudentSet", {
+                oDataModel.read("/zist_pm_9001Set", {
                     filters: filters,
+                    success: function (Data, response) {
+                        BusyIndicator.hide();
+                        var listmodel = new sap.ui.model.json.JSONModel(Data);
+                        that.getView().setModel(listmodel, "listModel");
+
+                        console.log(Data);
+                        console.log(response);
+                    },
+                    error: function (Error) {
+                        BusyIndicator.hide();
+                        sap.m.MessageBox.error("Error while expanding");
+                    }
+                });
+            },
+
+            onread: function () {
+                debugger
+                oDataModel.read("/zist_pm_9001Set", {
+                    // filters: filters,
                     success: function (Data, response) {
                         BusyIndicator.hide();
                         var listmodel = new sap.ui.model.json.JSONModel(Data);
@@ -144,6 +165,7 @@ sap.ui.define([
                         var oModel = new JSONModel(resObj2);
                         context.getView().setModel(oModel, "classcollegeDatasetcourse");
 
+
                     },
                     error: function (Error) {
                         BusyIndicator.hide();
@@ -152,6 +174,8 @@ sap.ui.define([
                     }
                 });
             },
+
+
             readCollageData: function (oEvent) {
                 BusyIndicator.show(0);
                 var context = this;
@@ -263,30 +287,195 @@ sap.ui.define([
             },
 
 
-            onSendMail: function (oEvent) {
-                //debugger
-                BusyIndicator.show(0);
-                var oModel = this.getView().getModel("listModel");
-                var oStudentList = oModel.getProperty("/selectedItems");
 
-                if (!oStudentList) {
-                    // No items are selected, handle this scenario (show an error message, etc.)
-                    MessageToast.show("No Student Seleceted");
-                    BusyIndicator.hide();
-                    return;
+            onExport: function (oEVent) {
+
+                // debugger;
+
+                var aCols, oRowBinding, oSettings, oSheet, oTable;
+
+                if (!this._oTable) {
+
+                    this._oTable = this.byId('studentList_table1');
+
                 }
 
-                oDataModel.create("/StudentSet", oStudentList, {
-                    success: function (Data, response) {
-                        BusyIndicator.hide();
-                        MessageBox.success("Email Has been Sent");
-                    },
-                    error: function (Error) {
-                        BusyIndicator.hide();
-                        MessageBox.error("error while expanding");
-                    }
-                });
-            }
+                oTable = this._oTable;
 
+                oRowBinding = oTable.getBinding('rows');
+
+                aCols = this.createColumnConfig();
+
+
+
+                oSettings = {
+
+                    workbook: {
+
+                        columns: aCols,
+
+                        hierarchyLevel: 'Level',
+
+                        context: {
+
+                            sheetName: 'Student List Report'
+
+                        }
+
+                    },
+
+                    dataSource: oRowBinding,
+
+                    fileName: 'Export.xlsx',
+
+                    worker: false
+
+                };
+
+
+
+                oSheet = new Spreadsheet(oSettings);
+
+                oSheet.build().finally(function () {
+
+                    oSheet.destroy();
+
+                });
+
+            },
+
+
+
+
+
+            createColumnConfig: function () {
+
+                debugger;
+
+                var aCols = [];
+
+                aCols.push({
+
+                    label: 'First Name',
+
+                    property: "FirstName",
+
+                    type: EdmType.String,
+
+                    width: 12
+
+                });
+
+                aCols.push({
+
+                    label: 'Last Name',
+
+                    property: 'LastName',
+
+                    type: EdmType.String,
+
+                    width: 35
+
+                });
+
+                aCols.push({
+
+                    label: 'Course Name',
+
+                    property: 'CourseName',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+
+                aCols.push({
+
+                    label: 'Personal E-Mail Address',
+
+                    property: 'Pemail',
+
+                    type: EdmType.String,
+
+                    width: 12
+
+                });
+
+                aCols.push({
+
+                    label: 'Coded note text',
+
+                    property: 'Codednoteidt',
+
+                    type: EdmType.String,
+
+                    width: 25
+
+                });
+
+                aCols.push({
+
+                    label: 'Placement process Participation YES /NO',
+
+                    property: 'Response',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+
+                aCols.push({
+
+                    label: 'Reason for non participation in placement process',
+
+                    property: 'Remark',
+
+                    type: EdmType.String,
+
+                    width: 20
+
+                });
+
+                aCols.push({
+
+                    label: 'SSC Board',
+
+                    property: 'SscBoad',
+
+                    type: EdmType.String,
+
+                    width: 12
+
+                });
+
+                aCols.push({
+
+                    label: 'SSC Obtained Marks',
+
+                    property: 'SscMarksObt',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+
+                aCols.push({
+
+                    label: 'SSC (%)',
+
+                    property: 'SscPerc',
+
+                    type: EdmType.String,
+
+                    width: 18
+
+                });
+
+                return aCols;
+
+            }
         });
     });

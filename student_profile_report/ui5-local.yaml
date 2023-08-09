@@ -2,7 +2,7 @@
 
 specVersion: "2.6"
 metadata:
-  name: studentregistrationform
+  name: studentprofilereport
 type: application
 framework:
   name: SAPUI5
@@ -30,14 +30,24 @@ server:
       configuration:
         ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         backend:
+          - path:
+            url:
+            client:
           - path: /sap
-            url: https://sdcs4qdbap.svkm.ac.in:44300
-            client: '300'
-          - path: /sap/opu/odata/sap/ZIODATA_PM_1004_SRV
-            url: https://sdcs4qdbap.svkm.ac.in:44300
-            client: '300'
+            url: https://sdcwddqapp.svkm.ac.in:44301
+            client: '320'
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/ZIODATA_PM_1005_SRV
+            metadataPath: ./webapp/localService/metadata.xml
+            mockdataPath: ./webapp/localService/data
+            generateMockData: true
+        annotations: []
     - name: fiori-tools-preview
       afterMiddleware: fiori-tools-appreload
       configuration:
-        component: studentregistrationform
+        component: studentprofilereport
         ui5Theme: sap_horizon

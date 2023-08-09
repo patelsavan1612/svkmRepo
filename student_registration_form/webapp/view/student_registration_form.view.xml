@@ -16,12 +16,12 @@
 			<snappedHeading>
 				<m:FlexBox  fitContainer="true" alignItems="Center">
 					<m:Avatar src="../model/man.png" class="sapUiTinyMarginEnd"/>
-					<m:Title text="Student Name (First Name, Surname)" wrapping="true"/>
+					<m:Title text="Student Name: {StudentDataset>/results/0/FirstName} {StudentDataset>/results/0/LastName}" wrapping="true"/>
 				</m:FlexBox>
 			</snappedHeading>
-		<actions>		
+		<!-- <actions>		
 			<m:OverflowToolbarButton icon="sap-icon://pull-down" press="onGeneratePDF" text="PDF" type="Emphasized" tooltip="Download"/>
-		</actions>
+		</actions> -->
       </ObjectPageDynamicHeaderTitle>
     </headerTitle>
 	<headerContent>
@@ -29,23 +29,33 @@
 		<m:Avatar src="../model/man.png" displaySize="M" showBorder="true" press="onPress"/>
 
 	<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
-		<m:Text text="Student Name (First Name, Surname)" class="sapUiSmallMarginTop" />
-        <m:Label text="SAP Number" design="Bold" />
-	</layout:VerticalLayout>
-	<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">	
-        <m:Label text="Date of Birth" design="Bold" />
-        <m:Text text="{StudentDataset>/}" />
-        <m:Label text="Contact number" design="Bold" />
-        <m:Text text="{StudentDataset>/}" />
-		<m:Label text="Home Town" design="Bold" />
-        <m:Text text="{StudentDataset>/}" />
+		<m:Title text="Student Name: {StudentDataset>/results/0/FirstName} {StudentDataset>/results/0/LastName}" class="sapUiSmallMarginTop" />
+        <m:Title text="SAP Number: {StudentDataset>/results/0/Zuser}"  />
 	</layout:VerticalLayout>
 	<layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+		<m:HBox >
+        <m:Label text="Date of Birth: " design="Bold" />
+        <m:Text text="{StudentDataset>/results/0/Dob}" class="sapUiSmallMarginBeginEnd" />
+		</m:HBox>
+		<m:HBox >
+        <m:Label text="Contact number:" design="Bold" />
+        <m:Text text="{StudentDataset>/results/0/Mobnumber}" class="sapUiSmallMarginBeginEnd" />
+		</m:HBox >
+		<m:HBox >
+		<m:Label text="Home Town:" design="Bold" />
+        <m:Text text="{StudentDataset>/results/0/Address}" class="sapUiSmallMarginBeginEnd" />
+		</m:HBox >
+	</layout:VerticalLayout>
+	<!-- <layout:VerticalLayout class="sapUiSmallMarginBeginEnd">
+	<m:HBox >
 		<m:Label text="Permanent Address" design="Bold" />
-        <m:Text text="{StudentDataset>/}" />
-        <m:Label text="Temporary Address" design="Bold" />
-        <m:Text text="{StudentDataset>/}" />
-    </layout:VerticalLayout>
+        <m:Text text="{StudentDataset>/results/0/Address}" />
+		</m:HBox >
+		<m:HBox >
+        <m:Label text="Temporary Address:" design="Bold" />
+        <m:Text text="{StudentDataset>/results/0/Address}" />
+		</m:HBox >
+    </layout:VerticalLayout> -->
 		</m:FlexBox>
     </headerContent>
 
@@ -56,30 +66,34 @@
 				<blocks>
 					<ObjectPageLazyLoader stashed="true" id="Section1stashed">
 						<m:VBox class="sapUiSmallMargin">
-						<f:SimpleForm id="personal_details" editable="false" layout="ResponsiveGridLayout" labelSpanXL="5" labelSpanL="5"
+
+						<!-- <f:SimpleForm id="personal_details" editable="false" layout="ResponsiveGridLayout" labelSpanXL="5" labelSpanL="5"
 					labelSpanM="5" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2"
-					columnsL="2" columnsM="2" singleContainerFullSize="false" title="" class="coreSimpClass">
+					columnsL="2" columnsM="2" singleContainerFullSize="false" title="" class="coreSimpClass"> -->
+
+					<f:SimpleForm id="personal_details" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="5" labelSpanL="5" labelSpanM="5"
+                                                   adjustLabelSpan="false" columnsXL="4" columnsL="3" columnsM="2" singleContainerFullSize="false">   
 					<core:Title text=""/>
 					<m:Label text="Gender" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Text text="{StudentDataset>/results/0/Gender}"/>
 					<m:Label text="Date of Birth" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Text text="{StudentDataset>/results/0/Dob}"/>
 					<m:Label text="Contact number" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Text text="{StudentDataset>/results/0/Mobnumber}"/>
 					
 					<core:Title text=""/>
-					<m:Label text="Official College email ID" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
-					<m:Label text="Personal email ID" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Label text="Off.College Mail ID" design="Bold"/>
+					<m:Text text=" "/>
+					<m:Label text="Personal Email ID" design="Bold"/>
+					<m:Text text="{StudentDataset>/results/0/Pemail}"/>
 					<m:Label text="Home Town" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Text text="{StudentDataset>/results/0/Address}"/>
 	
 					<core:Title text=""/>
 					<m:Label text="Permanent Address" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Text text="{StudentDataset>/results/0/Address}"/>
 					<m:Label text="Temporary Address" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Text text="{StudentDataset>/results/0/Address}"/>
 					
 						</f:SimpleForm>
 						</m:VBox>
@@ -94,39 +108,55 @@
 				<blocks>
 					<ObjectPageLazyLoader stashed="true" id="Section2stashed">
 						<m:VBox class="sapUiSmallMargin">
-						<f:SimpleForm id="academic_details" editable="false" layout="ResponsiveGridLayout" labelSpanXL="6" labelSpanL="6"
+
+						<!-- <f:SimpleForm id="academic_details" editable="false" layout="ResponsiveGridLayout" labelSpanXL="6" labelSpanL="6"
 					labelSpanM="6" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="2"
-					columnsL="2" columnsM="2" singleContainerFullSize="false" title="" class="coreSimpClass">
+					columnsL="2" columnsM="2" singleContainerFullSize="false" title="" class="coreSimpClass"> -->
+
+					<f:SimpleForm id="academic_details" editable="false" layout="ResponsiveGridLayout" title="" labelSpanXL="5" labelSpanL="5" labelSpanM="5"
+                                                   adjustLabelSpan="false" columnsXL="4" columnsL="2" columnsM="2" singleContainerFullSize="false">
 
 					<core:Title text=""/>
 					<m:Label text="College" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Text text="{StudentDataset>/results/0/College}"/>
 					<m:Label text="Program Name" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Text text="{StudentDataset>/results/0/CourseName}"/>
 					<m:Label text="Academic year/Semester" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
-					<m:Label text="Aggregate of SEM 1 to SEM 4 SGPI" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Text text="{StudentDataset>/results/0/AcademicYr}"/>
+					<!-- <m:Label text="Aggregate of GPA" design="Bold"/>
+					<m:Text text="{StudentDataset>/results/0/AvgPercentage}"/> -->
 					
 					<core:Title text=""/>
-					<m:Label text="STD X Marks (in %)" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
-					<m:Label text="STD X - the year of passing" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
-                    <m:Label text="STD XII Marks (in %)" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
-					<m:Label text="STD XII - the year of passing" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Label text="STD X Marks " design="Bold"/>
+					<m:Text text="{StudentDataset>/results/0/Marks10}"/>
+					<m:Label text="STD X-Passing Year" design="Bold"/>
+					<m:Text text="{StudentDataset>/results/0/Year10}"/>
+                    <m:Label text="STD XII Marks " design="Bold"/>
+					<m:Text text="{StudentDataset>/results/0/Marks12}"/>
+					<m:Label text="STD XII-Passing Year" design="Bold"/>
+					<m:Text text="{StudentDataset>/results/0/Year12}"/>
+					<!-- <m:Label text="Aggregate of SEM 5 to SEM 8 SGPI" design="Bold"/>
+					<m:Text text=" "/> -->
 					
 					<core:Title text=""/>
 					<m:Label text="SEM 1 SGPA" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Text text="{StudentDataset>/results/0/Sem1}"/>
 					<m:Label text="SEM 2 SGPA" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Text text="{StudentDataset>/results/0/Sem2}"/>
 					<m:Label text="SEM 3 SGPA" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Text text="{StudentDataset>/results/0/Sem3}"/>
 					<m:Label text="SEM 4 SGPA" design="Bold"/>
-					<m:Text text="{StudentDataset>/}"/>
+					<m:Text text="{StudentDataset>/results/0/Sem4}"/>
+
+					<core:Title text=""/>
+					<m:Label text="SEM 5 SGPA" design="Bold"/>
+					<m:Text text="{StudentDataset>/results/0/Sem5}"/>
+					<m:Label text="SEM 6 SGPA" design="Bold"/>
+					<m:Text text="{StudentDataset>/results/0/Sem6}"/>
+					<m:Label text="SEM 7 SGPA" design="Bold"/>
+					<m:Text text="{StudentDataset>/results/0/Sem7}"/>
+					<m:Label text="SEM 8 SGPA" design="Bold"/>
+					<m:Text text="{StudentDataset>/results/0/Sem8}"/>
 						</f:SimpleForm>
 						</m:VBox>
 					</ObjectPageLazyLoader>
@@ -143,52 +173,70 @@
 						<f:SimpleForm>
 									<m:Toolbar>
 									<m:ToolbarSpacer />
-									<m:Button icon="sap-icon://add" press="onAddButtonClick" />
+									<m:Button icon="sap-icon://add" press="addRowQuali" visible="{viewModel>/btnEnable}" />
 									</m:Toolbar>
-						<m:Table id="Qalification"   class="sapUiSizeCompact">
+									<m:ScrollContainer  horizontal="true" vertical="true">
+						<m:Table id="Qalification" items="{path:'NavtoQuali>/results'}"   class="sapUiSizeCompact">
 						<m:columns>
-							<m:Column hAlign="Begin" width="5rem">
-								<m:Label text="SR No." design="Bold" wrapping="true"/>
+							<!-- <m:Column hAlign="Begin" width="4rem">
+								<m:Label text="SR.No" wrapping="true" design="Bold" />
+							</m:Column> -->
+							<m:Column hAlign="Center" width="14rem">
+								<m:Label text="Type of additional qualification" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
-							<m:Column hAlign="Begin" width="14rem">
+							<m:Column hAlign="Center" width="14rem">
 								<m:Label text="Name of additional qualification" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
-							<m:Column hAlign="Center">
+							<m:Column hAlign="Center" width="14rem">
 								<m:Label text="Institution from which qualification is acquired" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
-							<m:Column hAlign="Center">
-								<m:Label text="Duration of course" wrapping="true" design="Bold" required="true"/>
+							<m:Column hAlign="Center" width="14rem">
+								<m:Label text="Start Date of qalification" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
-							<m:Column hAlign="Center">
-								<m:Label text="Result" wrapping="true"  design="Bold" required="true"/>
+							<m:Column hAlign="Center" width="14rem">
+								<m:Label text="End Date of qalification" wrapping="true" design="Bold" required="true"/>
+							</m:Column>
+							<m:Column hAlign="Center" width="14rem" visible="{viewModel>/btnEnable}">
+								<m:Label text="Attach Result" wrapping="true"  design="Bold" />
+							</m:Column>
+							<m:Column hAlign="Center" width="14rem" >
+								<m:Label text="Attached Documents" wrapping="true"  design="Bold" />
+							</m:Column>
+							<m:Column hAlign="Center" width="5rem" visible="{viewModel>/btnEnable}" >
+								<m:Label text="Action" wrapping="true"  design="Bold" />
 							</m:Column>
 							
 						</m:columns>
 						<m:items>
 							 <m:ColumnListItem id="templateRow">
 								<m:cells>
-									<m:Text text="1" />
-									<m:Select width="14rem">
-                    					<core:Item key="1" text="Degree" />
-                    					<core:Item key="2" text="Diploma" />
-                    					<core:Item key="3" text="PG Diploma" />
+									<!-- <m:Text text="1" /> -->
+									<m:Select width="14rem" >
+                    					<core:Item key="1" text="{ path:'NavtoQuali>QualType', formatter: '.formatter.formatQuali'} " />
+                    					
                 					</m:Select>
-									<m:Input />
-									<m:DateRangeSelection />
+									<m:Input value="{NavtoQuali>QualName}"  />
+									<m:Input value="{NavtoQuali>InstOrg}"  />
+									<m:DatePicker value = "{path:'NavtoQuali>Begda', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy' }}"  />
+									<m:DatePicker  value = "{path:'NavtoQuali>Endda', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy' }}"  />
   									<u:FileUploader
 										id="fileUploader"
 										name="myFileUpload"
 										uploadUrl="upload/"
 										placeholder="Choose a file for Upload..."
 										tooltip="Upload your file to the local server"
-										buttonText="Upload"
-										uploadComplete="handleUploadComplete"/>
-  									<!-- <m:Button icon="sap-icon://upload" press="handleUploadButtonPress" /> -->
+										buttonText="Upload" style="Emphasized"
+										uploadComplete="handleUploadComplete" 
+										change="handleUploadPress"
+										visible="{viewModel>/btnEnable}" />
+										<m:Text text="{NavtoQuali>Document}"  />
+  									<m:Button  icon="sap-icon://delete" visible="{viewModel>/btnEnable}" press="DeleteDataQua"></m:Button>
 									
 								</m:cells>
 							</m:ColumnListItem>
 						</m:items>
 						</m:Table>
+						</m:ScrollContainer>
 						</f:SimpleForm>
 						</m:VBox>
 					</ObjectPageLazyLoader>
@@ -196,6 +244,7 @@
 			</ObjectPageSubSection>
 		</subSections>
 	</ObjectPageSection>
+
     <ObjectPageSection titleUppercase="false" title="my section">
 		<subSections>
 			<ObjectPageSubSection title="Internship/Project Details" mode="Expanded" id="internship_project" titleUppercase="false">
@@ -205,71 +254,172 @@
 									<f:SimpleForm>
 									<m:Toolbar>
 									<m:ToolbarSpacer />
-									<m:Button icon="sap-icon://add" press="onAddButtonClickip" />
+									<m:Button id="idAdd" visible="{viewModel>/btnEnable}" icon="sap-icon://add" press="addRowInter" />
 									</m:Toolbar>
-									<m:ScrollContainer  horizontal="true">
-							<m:Table id="ip_Details" width="auto"  class="sapUiSizeCompact">
+									<m:ScrollContainer  horizontal="true" vertical="true">
+							<m:Table id="ip_Details"  items="{path:'NavtoIntern>/results'}" width="auto"  class="sapUiSizeCompact" >
 							<m:columns>
-							<m:Column hAlign="Begin" width="5rem">
+							<!-- <m:Column hAlign="Begin" width="5rem">
 								<m:Label text="SR No." design="Bold" wrapping="true"/>
+							</m:Column> -->
+							<m:Column hAlign="Left" width="10rem">
+								<m:Label text="Type" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
 							<m:Column hAlign="Center" width="14rem">
-								<m:Label text="Details of Internships" design="Bold" wrapping="true" required="true"/>
+								<m:Label text="Details of Internships/Project" design="Bold" wrapping="true" required="true"/>
 							</m:Column>
 							<m:Column hAlign="Center" width="14rem">
 								<m:Label text="Name of Organisation (most recent)" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
 							<m:Column hAlign="Center" width="14rem">
-								<m:Label text="Duration of internship" wrapping="true" design="Bold" required="true"/>
+								<m:Label text="Start Date of internship/Project" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
 							<m:Column hAlign="Center" width="14rem">
-								<m:Label text="Contact details (official email or phone no) of the immediate supervisor during the current/latest internship" wrapping="true" design="Bold" required="true"/>
+								<m:Label text="End Date of internship/Project" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
 							<m:Column hAlign="Center" width="14rem">
-								<m:Label text="Designation of the student during internship" wrapping="true" design="Bold" required="true"/>
+								<m:Label text="Contact details (official email or phone no) of the immediate supervisor during the current/latest internship" wrapping="true" design="Bold" />
 							</m:Column>
 							<m:Column hAlign="Center" width="14rem">
+								<m:Label text="Designation of the student during internship/Project" wrapping="true" design="Bold" />
+							</m:Column>
+							<!-- <m:Column hAlign="Center" width="14rem">
 								<m:Label text="Higher education - immediately post- PG, When? Please provide a period" wrapping="true" design="Bold" required="true"/>
+							</m:Column> -->
+							<m:Column hAlign="Center" width="14rem" visible="{viewModel>/btnEnable}" >
+								<m:Label text="Attachment" wrapping="true" design="Bold" required="true"/>
 							</m:Column>
 							<m:Column hAlign="Center" width="14rem">
-								<m:Label text="Offer letter or experience certificate of last 2 internships" wrapping="true" design="Bold" required="true"/>
+								<m:Label text="Offer letter or experience certificate of last 2 internships (Attached File)" wrapping="true" design="Bold" />
+							</m:Column>
+							
+							<m:Column hAlign="Center" width="5rem" visible="{viewModel>/btnEnable}">
+								<m:Label text="Action"  wrapping="true" design="Bold" />
 							</m:Column>
 						</m:columns>
 						<m:items>
 							 <m:ColumnListItem id="templateRowIp">
 													<m:cells>
-														<m:Text text="1" />
-														<m:Input />
-														<m:Input />
-														<m:DateRangeSelection />
-														<m:Input />
-														<m:Input />
-														<m:Input />
+													
+														<!-- <m:Text text="" /> -->
+														<m:ComboBox id="id_type" showSecondaryValues= "true" selectedKey="{NavtoIntern>QualType}"
+                                                		placeholder="Select Type" selectionChange="onStatusChange" width="6rem">
+														<core:Item key="{NavtoIntern>QualType}" text="{path:'NavtoIntern>QualType', formatter: '.formatter.formatType'}"/>
+														</m:ComboBox>
+														<m:Input value="{NavtoIntern>QualName}" />
+														<m:Input value="{NavtoIntern>InstOrg}" />
+														<m:DatePicker value = "{path:'NavtoIntern>Begda', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy' }}"  />
+														<m:DatePicker  value = "{path:'NavtoIntern>Endda', type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'dd.MM.yyyy' }}"  />
+														<m:Input value="{NavtoIntern>ManagEmail}" />
+														<m:Input value="{NavtoIntern>ManagEmail}" />
+														<!-- <m:Input value="{NavtoIntern>Duration}" /> -->
 														<u:FileUploader
 															id="fileUploaderIntern"
-															name="myFileUpload"
-															uploadUrl="upload/"
+															
+															
 															placeholder="Choose a file for Upload..."
 															tooltip="Upload your file to the local server"
-															buttonText="Upload"
-															uploadComplete="handleUploadComplete"/>
+															buttonText="Browse"
+															multiple="false"
+															
+															style="Emphasized"
+															sameFilenameAllowed="false"
+															change="handleUploadPress2" visible="{viewModel>/btnEnable}" />
+															<m:Text text="{NavtoIntern>Document}" />
+															
+															<m:Button  icon="sap-icon://delete" visible="{viewModel>/btnEnable}" press="DeleteDataInter"></m:Button>
 													</m:cells>
 												</m:ColumnListItem>
 											</m:items>
 										</m:Table>
 										</m:ScrollContainer>
 									</f:SimpleForm>
+									<!-- <m:CheckBox text="I hereby declare that all the details provided above are true to the best of my knowledge" visible="{viewModel>/btnEnable}" selected="false" editable="true" select="onSelect" /> -->
 								</m:VBox>
-							</ObjectPageLazyLoader>
-						</blocks>
-					</ObjectPageSubSection>
-				</subSections>
-			</ObjectPageSection>
+					</ObjectPageLazyLoader>		
+				</blocks>
+			</ObjectPageSubSection>
+		</subSections>
+	</ObjectPageSection>
+
+	<ObjectPageSection titleUppercase="false" title="Curricular Activities">
+		<subSections>
+			<ObjectPageSubSection title="Curricular Activities" mode="Expanded" id="Qualifications2" titleUppercase="false">
+				<blocks>
+					<ObjectPageLazyLoader stashed="true" id="Section3stashed3">
+						<m:VBox class="sapUiSmallMargin">
+						<f:SimpleForm>
+									<m:Toolbar>
+									<m:ToolbarSpacer />
+									<m:Button icon="sap-icon://add" press="addRowActi" visible="{viewModel>/btnEnable}" />
+									</m:Toolbar>
+									<m:ScrollContainer  horizontal="true" vertical="true">
+						<m:Table id="activity" items="{path:'NavtoCurr>/results'}"  class="sapUiSizeCompact">
+						<m:columns>
+							<!-- <m:Column hAlign="Begin" width="4rem" >
+								<m:Label text="SR.No" design="Bold" wrapping="true"/>
+							</m:Column> -->
+
+							<m:Column  >
+								<m:Label text="Activity" design="Bold" wrapping="true"/>
+							</m:Column>
+
+							<m:Column  visible="{viewModel>/btnEnable}" >
+								<m:Label text="Attachment Uploader" design="Bold" wrapping="true"/>
+							</m:Column>
+
+							<m:Column  >
+								<m:Label text="Attachment" design="Bold" wrapping="true"/>
+							</m:Column>
+
+							<m:Column    visible="{viewModel>/btnEnable}">
+								<m:Label text="Action" design="Bold" wrapping="true"/>
+							</m:Column>
+							
+						</m:columns>
+						<m:items>
+							 <m:ColumnListItem id="idtemplateRowAct">
+								<m:cells>
+									<!-- <m:Text text="1" /> -->
+									<m:Input value="{NavtoCurr>Text}"/>
+									
+  									<u:FileUploader
+										
+										name="myFileUpload"
+										uploadUrl="upload/"
+										placeholder="Choose a file for Upload..."
+										tooltip="Upload your file to the local server"
+										buttonText="Browse"
+										style="Emphasized"
+										uploadComplete="handleUploadComplete"
+										change="handleUploadPress3"
+										 visible="{viewModel>/btnEnable}" />
+
+  									<m:Text text="{NavtoItem>Document}" />
+
+									<m:Button  icon="sap-icon://delete" visible="{viewModel>/btnEnable}" press="DeleteDataActi"></m:Button>
+
+									
+								</m:cells>
+							</m:ColumnListItem>
+						</m:items>
+						</m:Table>
+						</m:ScrollContainer>
+						</f:SimpleForm>
+						<m:CheckBox text="I hereby declare that all the details provided above are true to the best of my knowledge" visible="{viewModel>/btnEnable}" selected="false" editable="true" select="onSelect" />
+						</m:VBox>
+					</ObjectPageLazyLoader>
+				</blocks>
+			</ObjectPageSubSection>
+		</subSections>
+	</ObjectPageSection>
+
 		</sections>
 			<footer>
 			<m:OverflowToolbar>
 				<m:ToolbarSpacer />
-				<m:Button id="submitButton" type="Accept" text="Submit" press="onSubmit" ariaHasPopup="Dialog"/>
+				<m:Button id="idDraft" visible="{viewModel>/btnEnable}" type="Emphasized" text="Draft" press="onPosting" enabled="true" ariaHasPopup="Dialog"/>
+				<m:Button id="idSubmit" visible="{viewModel>/btnEnable}" type="Accept" text="Submit" press="onPosting" enabled="false" ariaHasPopup="Dialog"/>
 			</m:OverflowToolbar>
 		</footer>
 	</ObjectPageLayout>       
