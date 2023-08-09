@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
 specVersion: "2.6"
 metadata:
   name: studentprofilereport
@@ -7,7 +9,7 @@ server:
     - name: fiori-tools-proxy
       afterMiddleware: compression
       configuration:
-        ignoreCertError: false
+        ignoreCertError: false # If set to true, certificate errors will be ignored. E.g. self-signed certificates will be accepted
         ui5:
           path:
             - /resources
@@ -16,10 +18,7 @@ server:
         backend:
           - path: /sap
             url: https://sdcs4ddbap.svkm.ac.in:44300
-            client: "320"
-          - path: /sap
-            url: https://sdcwddqapp.svkm.ac.in:44301
-            client: "320"
+            client: '320'
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -36,8 +35,3 @@ server:
             mockdataPath: ./webapp/localService/data
             generateMockData: true
         annotations: []
-        service:
-          - urlPath: /sap/opu/odata/sap/ZIODATA_PM_1005_SRV
-            metadataXmlPath: ./webapp/localService/metadata.xml
-            mockdataRootPath: ./webapp/localService/data
-            generateMockData: true
