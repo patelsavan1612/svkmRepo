@@ -110,7 +110,7 @@ sap.ui.define([
                     },
                     error: function (Error) {
                         BusyIndicator.hide();
-                        sap.m.MessageBox.error("Error while expanding");
+                        MessageBox.error(JSON.parse(Error.responseText).error.message.value)
                     }
                 });
             },
@@ -147,7 +147,7 @@ sap.ui.define([
                     },
                     error: function (Error) {
                         BusyIndicator.hide();
-                        MessageBox.error("error while expanding");
+                        MessageBox.error(JSON.parse(Error.responseText).error.message.value)
 
                     }
                 });
@@ -221,7 +221,7 @@ sap.ui.define([
                     },
                     error: function (Error) {
                         BusyIndicator.hide();
-                        MessageBox.error("error while expanding");
+                        MessageBox.error(JSON.parse(Error.responseText).error.message.value)
 
                     }
                 });
@@ -283,7 +283,7 @@ sap.ui.define([
                     },
                     error: function (Error) {
                         BusyIndicator.hide();
-                        MessageBox.error("error while expanding");
+                        MessageBox.error(JSON.parse(Error.responseText).error.message.value)
                     }
                 });
             }
