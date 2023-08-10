@@ -150,37 +150,19 @@ sap.ui.define([
                 });
             },
             onReadSH: function () {
-
                 // debugger
-
                 oDataModel.read("/StudentSHSet", {
-
                     // filters: filters,
-
                     success: function (Data, response) {
-
-                        debugger
-
                         BusyIndicator.hide();
-
                         var listmodel = new sap.ui.model.json.JSONModel(Data);
-
                         that.getView().setModel(listmodel, "listModel");
-
-
-
                         console.log(Data);
-
                         console.log(response);
-
                     },
-
                     error: function (Error) {
-
                         BusyIndicator.hide();
-
                         sap.m.MessageBox.error(JSON.parse(Error.responseText).error.message.value);
-
                     }
 
                 });
@@ -225,8 +207,6 @@ sap.ui.define([
                     }
                 });
             },
-
-
             readCollageData: function (oEvent) {
                 BusyIndicator.show(0);
                 var context = this;
