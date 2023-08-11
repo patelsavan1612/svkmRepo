@@ -15,6 +15,13 @@ server:
             - /resources
             - /test-resources
           url: https://ui5.sap.com
+        backend:
+          - path: /sap
+            url: https://sdcwddqapp.svkm.ac.in:44301
+            client: '320'
+          - path: /sap/opu/odata/sap/ZIODATA_PM_1007_SRV
+            url: https://sdcwddqapp.svkm.ac.in:44301
+            client: '320'
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:

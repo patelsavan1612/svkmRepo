@@ -25,18 +25,18 @@ sap.ui.define([
                 var context;
                 context = this;
                 that = this;
-                // var placementdata = this.getOwnerComponent().getModel("placementdataproperty").getData();
-                // var placementmodel = new JSONModel(placementdata);
-                // this.getView().setModel(placementmodel, "cModel");
-                // oDataModel = this.getOwnerComponent().getModel();
-                // that.listdata = this.getOwnerComponent().getModel("ZIODATA_PM_1005_SRV");
-                // var oViewModel = new sap.ui.model.json.JSONModel({
-                //     minDate: new Date(2022, 1, 1)
-                // });
-                // that.onread();
+                var placementdata = this.getOwnerComponent().getModel("placementdataproperty").getData();
+                var placementmodel = new JSONModel(placementdata);
+                this.getView().setModel(placementmodel, "cModel");
+                oDataModel = this.getOwnerComponent().getModel();
+                that.listdata = this.getOwnerComponent().getModel("ZIODATA_PM_1007_SRV");
+                var oViewModel = new sap.ui.model.json.JSONModel({
+                    minDate: new Date(2022, 1, 1)
+                });
+                that.onread();
                 // that.onReadSH();
-                // this.getView().setModel(oViewModel, "viewModel");
-                // this.readCollageData();
+                this.getView().setModel(oViewModel, "viewModel");
+                this.readCollageData();
             },
             onGoPress: function (oEvent) {
                 // debugger
@@ -45,13 +45,13 @@ sap.ui.define([
 
                 var collegeInput = this.getView().byId("collegeinput");
                 // var courseInput = this.getView().byId("courseinput2");
-                var studentInput = this.getView().byId("studentSapNumber");
+                // var studentInput = this.getView().byId("studentSapNumber");
                 var yearInput = this.getView().byId("yearinput");
                 var studentListTable = this.getView().byId("studentList_table1");
 
                 var isCollegeEmpty = !collegeInput.getSelectedKey();
                 // var isCourseEmpty = !courseInput.getSelectedKeys().length;
-                var isStudentEmpty = !studentInput.getSelectedKeys().length;
+                // var isStudentEmpty = !studentInput.getSelectedKeys().length;
                 var isYearEmpty = !yearInput.getDateValue();
                 var isstudentListTableEmpty = !studentListTable.getSelectedIndices().length;
 
@@ -94,15 +94,15 @@ sap.ui.define([
                 //     filters.push(courseFilter);
                 // }
 
-                if (!isStudentEmpty) {
-                    var studentFilters = [];
-                    studentInput.getSelectedKeys().forEach(function (number) {
-                        var studentFilter = new sap.ui.model.Filter("Student12", sap.ui.model.FilterOperator.EQ, number);
-                        studentFilters.push(studentFilter);
-                    });
-                    var studentFilter = new sap.ui.model.Filter(studentFilters, false);
-                    filters.push(studentFilter);
-                }
+                // if (!isStudentEmpty) {
+                //     var studentFilters = [];
+                //     studentInput.getSelectedKeys().forEach(function (number) {
+                //         var studentFilter = new sap.ui.model.Filter("Student12", sap.ui.model.FilterOperator.EQ, number);
+                //         studentFilters.push(studentFilter);
+                //     });
+                //     var studentFilter = new sap.ui.model.Filter(studentFilters, false);
+                //     filters.push(studentFilter);
+                // }
                 if (!isYearEmpty) {
                     var yearFilter = new sap.ui.model.Filter(
                         "Peryr",
@@ -254,21 +254,21 @@ sap.ui.define([
                         // var oModel = new JSONModel(resObj2);
                         // context.getView().setModel(oModel, "classcollegeDatasetcourse");
 
-                        var resArr4 = [];
-                        var resObj4 = {
+                        // var resArr4 = [];
+                        // var resObj4 = {
 
-                            resArr4: []
-                        }
-                        Data4.results.filter(function (item) {
-                            var i = resObj4.resArr4.findIndex(x => (x.studentInput == item.studentInput));
-                            if (i <= -1) {
-                                resObj4.resArr4.push(item);
-                            }
-                            return null;
-                        });
-                        // console.log(resArr2)
-                        var oModel = new JSONModel(resObj4);
-                        context.getView().setModel(oModel, "classStudentDatasetNumber");
+                        //     resArr4: []
+                        // }
+                        // Data4.results.filter(function (item) {
+                        //     var i = resObj4.resArr4.findIndex(x => (x.studentInput == item.studentInput));
+                        //     if (i <= -1) {
+                        //         resObj4.resArr4.push(item);
+                        //     }
+                        //     return null;
+                        // });
+                        // // console.log(resArr2)
+                        // var oModel = new JSONModel(resObj4);
+                        // context.getView().setModel(oModel, "classStudentDatasetNumber");
 
 
                         var resArr3 = [];

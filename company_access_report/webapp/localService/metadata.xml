@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZIODATA_PM_1007_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="zist_pm_9001" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Student12"/>
+                    <PropertyRef Name="Stobjid"/>
+                    <PropertyRef Name="OObjid"/>
+                    <PropertyRef Name="ScObjid"/>
+                    <PropertyRef Name="Peryr"/>
+                </Key>
+                <Property Name="ResponseDate" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Response date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Dob" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Date" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Student12" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Student Number" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Stobjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Student ID" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="OObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Organization ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="ScObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Program Object ID" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Peryr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Acad. Year" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Codednoteidt" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Coded note text" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="CourseName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Comment" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="FirstName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="First name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="LastName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Last name" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Submit" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Submit" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Pemail" Type="Edm.String" Nullable="false" MaxLength="241" sap:unicode="false" sap:label="E-Mail Address" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Mobnumber" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Telephone" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Pincode" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Postal Code" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Response" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Response" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="Remark" Type="Edm.String" Nullable="false" MaxLength="250" sap:unicode="false" sap:label="Remarks" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="CollageSH" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="OrganizationCode"/>
+                </Key>
+                <Property Name="OrganizationCode" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OrganizationName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZIODATA_PM_1007_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="zist_pm_9001Set" EntityType="ZIODATA_PM_1007_SRV.zist_pm_9001" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="CollageSHSet" EntityType="ZIODATA_PM_1007_SRV.CollageSH" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://SDCWDDQAPP.SVKM.AC.IN:44301/sap/opu/odata/sap/ZIODATA_PM_1007_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://SDCWDDQAPP.SVKM.AC.IN:44301/sap/opu/odata/sap/ZIODATA_PM_1007_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

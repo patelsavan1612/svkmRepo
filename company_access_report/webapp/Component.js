@@ -30,9 +30,9 @@ sap.ui.define([
                 // set the device model
                 this.setModel(models.createDeviceModel(), "device");
 
-                // this.setModel(models.createModel(), "placementdataproperty");
+                this.setModel(models.createModel(), "placementdataproperty");
 
-                // this.setModel(models.createListModel(), "placementdataList");
+                this.setModel(models.createListModel(), "placementdataList");
             }
         });
     }
