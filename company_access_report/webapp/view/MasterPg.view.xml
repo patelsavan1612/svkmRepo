@@ -159,7 +159,105 @@
 								
 					</OverflowToolbar>
 				</t:extension>
+				
 				<t:columns>
+				<t:Column width="11rem">
+						<Label text="Response date" />
+						<t:template>
+							<Text text="{listModel>ResponseDate}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Submit" />
+						<t:template>
+							<Text text="{listModel>Submit}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Program Name" />
+						<t:template>
+							<Text text="{listModel>ProgramName}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="College Name" />
+						<t:template>
+							<Text text="{listModel>CollegeName}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Building no" />
+						<t:template>
+							<Text text="{listModel>Building}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Floor" />
+						<t:template>
+							<Text text="{listModel>Floor}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Room Number" />
+						<t:template>
+							<Text text="{listModel>Roomnumber}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="c/o name" />
+						<t:template>
+							<Text text="{listModel>NameCo}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Date of Birth" />
+						<t:template>
+							<Text text="{listModel>Dob}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Student Number" />
+						<t:template>
+							<Text text="{listModel>Student12}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Student ID" />
+						<t:template>
+							<Text text="{listModel>Stobjid}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="College Org Id" />
+						<t:template>
+							<Text text="{listModel>OObjid}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Course Org Id" />
+						<t:template>
+							<Text text="{listModel>ScObjid}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Acad. Year" />
+						<t:template>
+							<Text text="{listModel>Peryr}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					 <t:Column width="11rem">
+						<Label text="Coded note text" />
+						<t:template>
+							<Text text="{listModel>Codednoteidt}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Comment" />
+						<t:template>
+							<Text text="{listModel>CourseName}" wrapping="false" />
+						</t:template>
+					</t:Column>
+
 					<t:Column width="11rem">
 						<Label text="First Name" />
 						<t:template>
@@ -173,61 +271,138 @@
 							<Text text="{listModel>LastName}" wrapping="false" />
 						</t:template>
 					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Personal E-Mail Address" />
+						<t:template>
+							<Text text="{listModel>Pemail}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Mobile no." />
+						<t:template>
+							<Text text="{listModel>Mobnumber}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Postal Code" />
+						<t:template>
+							<Text text="{listModel>Pincode}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					 <t:Column width="11rem">
+						<Label text="Placement process Participation YES /NO" />
+						<t:template>
+							<Text text="{listModel>Response}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Reason for non participation in placement process" />
+						<t:template>
+							<Text text="{listModel>Remark}" wrapping="false" />
+						</t:template>
+					</t:Column>
 
-                    <t:Column width="11rem">
+					//////
+					<t:Column width="11rem">
+						<Label text="Street 5" />
+						<t:template>
+							<Text text="{listModel>Location}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Street 2" />
+						<t:template>
+							<Text text="{listModel>StrSuppl1}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Street 3" />
+						<t:template>
+							<Text text="{listModel>StrSuppl2}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="House Number" />
+						<t:template>
+							<Text text="{listModel>HouseNum1}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="District" />
+						<t:template>
+							<Text text="{listModel>City2}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="City" />
+						<t:template>
+							<Text text="{listModel>City1}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="State" />
+						<t:template>
+							<Text text="{listModel>State}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Other City" />
+						<t:template>
+							<Text text="{listModel>OthCity}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Country" />
+						<t:template>
+							<Text text="{listModel>Country}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					  <t:Column width="11rem">
+						<Label text="SSC Board" />
+						<t:template>
+							<Text text="{listModel>SscBoard}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="SSC State" />
+						<t:template>
+							<Text text="{listModel>SscState}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					
+
+
+
+
+
+
+
+
+
+                    
+
+                    
+
+                    
+					<t:Column width="11rem">
 						<Label text="Full Name" />
 						<t:template>
 							<Text text="{listModel>Fullname}" wrapping="false" />
 						</t:template>
 					</t:Column>
-
-                    <t:Column width="11rem">
-						<Label text="Date of Birth" />
-						<t:template>
-							<Text text="{listModel>Dob}" wrapping="false" />
-						</t:template>
-					</t:Column>
-
-                    <t:Column width="11rem">
-						<Label text="College Org Id" />
-						<t:template>
-							<Text text="{listModel>OObjid}" wrapping="false" />
-						</t:template>
-					</t:Column>
-
                      <t:Column width="11rem">
 						<Label text="Organization Name" />
 						<t:template>
 							<Text text="{listModel>OrganizationName}" wrapping="false" />
 						</t:template>
 					</t:Column>
-
-                    <t:Column width="11rem">
-						<Label text="Course Org Id" />
-						<t:template>
-							<Text text="{listModel>ScObjid}" wrapping="false" />
-						</t:template>
-					</t:Column>
-
-                    <t:Column width="11rem">
-						<Label text="Course Org Id" />
-						<t:template>
-							<Text text="{listModel>ScObjid}" wrapping="false" />
-						</t:template>
-					</t:Column>
-
                     <t:Column width="11rem">
 						<Label text="Internship 1 Job Titile" />
 						<t:template>
 							<Text text="{listModel>Int1Post}" wrapping="false" />
 						</t:template>
 					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Acad. Year" />
-						<t:template>
-							<Text text="{listModel>Peryr}" wrapping="false" />
-						</t:template>
-					</t:Column>
+                    
                      <t:Column width="11rem">
 						<Label text="Internship 2 Job Titile" />
 						<t:template>
@@ -525,70 +700,18 @@
 							<Text text="{listModel>PostDegreePerc}" wrapping="false" />
 						</t:template>
 					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Student Number" />
-						<t:template>
-							<Text text="{listModel>Student12}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Student ID" />
-						<t:template>
-							<Text text="{listModel>Stobjid}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Coded note text" />
-						<t:template>
-							<Text text="{listModel>Codednoteidt}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Comment" />
-						<t:template>
-							<Text text="{listModel>CourseName}" wrapping="false" />
-						</t:template>
-					</t:Column>
-
-                    <t:Column width="11rem">
-						<Label text="Personal E-Mail Address" />
-						<t:template>
-							<Text text="{listModel>Pemail}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Mobile no." />
-						<t:template>
-							<Text text="{listModel>Mobnumber}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Postal Code" />
-						<t:template>
-							<Text text="{listModel>Pincode}" wrapping="false" />
-						</t:template>
-					</t:Column>
                     
-                    <t:Column width="11rem">
-						<Label text="Placement process Participation YES /NO" />
-						<t:template>
-							<Text text="{listModel>Response}" wrapping="false" />
-						</t:template>
-					</t:Column>
+                    
+                   
+                    
 
-                    <t:Column width="11rem">
-						<Label text="Reason for non participation in placement process" />
-						<t:template>
-							<Text text="{listModel>Remark}" wrapping="false" />
-						</t:template>
-					</t:Column>
-
-                    <t:Column width="11rem">
-						<Label text="SSC Board" />
-						<t:template>
-							<Text text="{listModel>SscBoad}" wrapping="false" />
-						</t:template>
-					</t:Column>
+                    
+                    
+                    
+                    
+                   
+                    
+                  
 
                     <t:Column width="11rem">
 						<Label text="HSC College Name" />

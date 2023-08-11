@@ -449,6 +449,99 @@ sap.ui.define([
 
                 aCols.push({
 
+                    label: 'Response date',
+
+                    property: 'ResponseDate',
+
+                    type: EdmType.Date,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Submit',
+
+                    property: 'Submit',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+
+                aCols.push({
+
+                    label: 'Program Name',
+
+                    property: 'ProgramName',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+
+
+                aCols.push({
+
+                    label: 'College Name',
+
+                    property: 'CollegeName',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Building no',
+
+                    property: 'Building',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Floor',
+
+                    property: 'Floor',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Room Number',
+
+                    property: 'Roomnumber',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'c/o name',
+
+                    property: 'NameCo',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+
+
+                aCols.push({
+
                     label: 'College Org Id',
 
                     property: 'OObjid',
@@ -1140,17 +1233,129 @@ sap.ui.define([
                     width: 30
 
                 });
+
                 aCols.push({
 
-                    label: 'SSC Board',
+                    label: 'Street 5',
 
-                    property: 'SscBoad',
+                    property: 'Location',
 
                     type: EdmType.String,
 
                     width: 30
 
                 });
+                aCols.push({
+
+                    label: 'Street 2',
+
+                    property: 'StrSuppl1',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Street 3',
+
+                    property: 'StrSuppl2',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'House Number',
+
+                    property: 'HouseNum1',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'District',
+
+                    property: 'City2',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'City',
+
+                    property: 'City1',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'State',
+
+                    property: 'State',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Other City',
+
+                    property: 'OthCity',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Country',
+
+                    property: 'Country',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'SSC Board',
+
+                    property: 'SscBoard',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'SSC State',
+
+                    property: 'SscState',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+
                 aCols.push({
 
                     label: 'HSC College Name',
