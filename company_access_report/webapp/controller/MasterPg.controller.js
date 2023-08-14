@@ -80,7 +80,7 @@ sap.ui.define([
                 var filters = [];
 
                 if (!isCollegeEmpty) {
-                    var collegeFilter = new sap.ui.model.Filter("OObjid", sap.ui.model.FilterOperator.EQ, collegeInput.getSelectedKey());
+                    var collegeFilter = new sap.ui.model.Filter("OrganizationCode", sap.ui.model.FilterOperator.EQ, collegeInput.getSelectedKey());
                     filters.push(collegeFilter);
                 }
 
@@ -399,54 +399,6 @@ sap.ui.define([
                 // debugger;
 
                 var aCols = [];
-
-                aCols.push({
-
-                    label: 'First Name',
-
-                    property: "FirstName",
-
-                    type: EdmType.String,
-
-                    width: 12
-
-                });
-
-                aCols.push({
-
-                    label: 'Last Name',
-
-                    property: 'LastName',
-
-                    type: EdmType.String,
-
-                    width: 35
-
-                });
-                aCols.push({
-
-                    label: 'Full Name',
-
-                    property: 'Fullname',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-
-                aCols.push({
-
-                    label: 'Date of Birth',
-
-                    property: 'Dob',
-
-                    type: EdmType.Date,
-
-                    width: 30
-
-                });
-
                 aCols.push({
 
                     label: 'Response date',
@@ -469,7 +421,6 @@ sap.ui.define([
                     width: 30
 
                 });
-
                 aCols.push({
 
                     label: 'Program Name',
@@ -496,20 +447,9 @@ sap.ui.define([
                 });
                 aCols.push({
 
-                    label: 'Building no',
+                    label: 'Student Number',
 
-                    property: 'Building',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Floor',
-
-                    property: 'Floor',
+                    property: 'Student12',
 
                     type: EdmType.String,
 
@@ -518,66 +458,31 @@ sap.ui.define([
                 });
                 aCols.push({
 
-                    label: 'Room Number',
+                    label: 'Student ID',
 
-                    property: 'Roomnumber',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'c/o name',
-
-                    property: 'NameCo',
+                    property: 'Stobjid',
 
                     type: EdmType.String,
 
                     width: 30
 
                 });
+                // aCols.push({
 
+                //     label: 'College Org Id',
 
-                aCols.push({
+                //     property: 'OObjid',
 
-                    label: 'College Org Id',
+                //     type: EdmType.String,
 
-                    property: 'OObjid',
+                //     width: 30
 
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Organization Name',
-
-                    property: 'OrganizationName',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
+                // });
                 aCols.push({
 
                     label: 'Course Org Id',
 
                     property: 'ScObjid',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Internship 1 Job Titile',
-
-                    property: 'Int1Post',
 
                     type: EdmType.String,
 
@@ -597,9 +502,1081 @@ sap.ui.define([
                 });
                 aCols.push({
 
+                    label: 'Coded note text',
+
+                    property: 'Codednoteidt',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Comment',
+
+                    property: 'CourseName',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+
+                aCols.push({
+
+                    label: 'First Name',
+
+                    property: "FirstName",
+
+                    type: EdmType.String,
+
+                    width: 12
+
+                });
+
+                aCols.push({
+
+                    label: 'Last Name',
+
+                    property: 'LastName',
+
+                    type: EdmType.String,
+
+                    width: 35
+
+                });
+                aCols.push({
+
+                    label: 'Personal E-Mail Address',
+
+                    property: 'Pemail',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 1 Name',
+
+                    property: 'Prj1Nme',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Mobile no.',
+
+                    property: 'Mobnumber',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Building no',
+
+                    property: 'Building',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 1 Subject Name',
+
+                    property: 'Prj1Sub',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Floor',
+
+                    property: 'Floor',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 1 Description',
+
+                    property: 'Prj1Dtl',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Room Number',
+
+                    property: 'Roomnumber',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 2 Name',
+
+                    property: 'Prj2Nme',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'c/o name',
+
+                    property: 'NameCo',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 2 Subject Name',
+
+                    property: 'Prj2Sub',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Street 5',
+
+                    property: 'Location',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 2 Description',
+
+                    property: 'Prj2Dtl',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Street 2',
+
+                    property: 'StrSuppl1',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 3 Name',
+
+                    property: 'Prj3Nme',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Street 3',
+
+                    property: 'StrSuppl2',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 3 Subject Name',
+
+                    property: 'Prj3Sub',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'House Number',
+
+                    property: 'HouseNum1',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 3 Description',
+
+                    property: 'Prj3Dtl',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 4 Name',
+
+                    property: 'Prj4Nme',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'District',
+
+                    property: 'City2',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 4 Subject Name',
+
+                    property: 'Prj4Sub',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'City',
+
+                    property: 'City1',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 4 Description',
+
+                    property: 'Prj4Dtl',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 5 Name',
+
+                    property: 'Prj5Nme',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Other City',
+
+                    property: 'OthCity',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 5 Subject Name',
+
+                    property: 'Prj5Sub',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Country',
+
+                    property: 'Country',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Postal Code',
+
+                    property: 'Pincode',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Project 5 Description',
+
+                    property: 'Prj5Dtl',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'SSC Board',
+
+                    property: 'SscBoard',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'SSC State',
+
+                    property: 'SscState',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'SSC School Name',
+
+                    property: 'SscSchool',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'HSC Board',
+
+                    property: 'HscBoard',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'HSC Board State',
+
+                    property: 'HscState',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'HSC College Name',
+
+                    property: 'HscSchool',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'DIPLOMA UNIVERSITY',
+
+                    property: 'DiplomaBoard',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'DIPLOMA State',
+
+                    property: 'DiplomaState',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+
+                aCols.push({
+
+                    label: 'Diploma College Name',
+
+                    property: 'DiplomaSchool',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'DIPLOMA NAME / SPECIALIZATION',
+
+                    property: 'DiplomaSpecl',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'DEGREE UNIVERSITY',
+
+                    property: 'DegreeBoad',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'DEGREE UNIVERSITY State',
+
+                    property: 'DegreeState',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Degree College Name',
+
+                    property: 'DegreeSchool',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'DEGREE SPECIALIZATION',
+
+                    property: 'DegreeSpecli',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'POST Graduation DEGREE UNIVERSITY',
+
+                    property: 'PostDegreeBoad',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'POST Graduation DEGREE UNIVERSITY State',
+
+                    property: 'PstdegState',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Post Graduation College Name',
+
+                    property: 'PostDegreeSchool',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'POST Graduation SPECIALIZATION',
+
+                    property: 'PostDegreeSpecli',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Placement process Participation YES /NO',
+
+                    property: 'Response',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Reason for non participation in placement process',
+
+                    property: 'Remark',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Sem1',
+
+                    property: 'Sem1',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Date of Birth',
+
+                    property: 'Dob',
+
+                    type: EdmType.Date,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'SSC Pass date',
+
+                    property: 'SscDate',
+
+                    type: EdmType.Date,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Sem2',
+
+                    property: 'Sem2',
+
+                    type: EdmType.Date,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'HSC Pass date',
+
+                    property: 'HscDate',
+
+                    type: EdmType.Date,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Sem3',
+
+                    property: 'Sem3',
+
+                    type: EdmType.Date,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Sem4',
+
+                    property: 'Sem4',
+
+                    type: EdmType.Date,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'DIPLOMA pass date',
+
+                    property: 'DiplomaDate',
+
+                    type: EdmType.Date,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Sem5',
+
+                    property: 'Sem5',
+
+                    type: EdmType.Date,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'DEGREE Pass date',
+
+                    property: 'DegreeDate',
+
+                    type: EdmType.Date,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Sem6',
+
+                    property: 'Sem6',
+
+                    type: EdmType.Date,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'POST Graduation Pass date',
+
+                    property: 'PstdegDate',
+
+                    type: EdmType.Date,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'SSC Total Marks (Out Of)',
+
+                    property: 'SscTot',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Sem7',
+
+                    property: 'Sem7',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Sem8',
+
+                    property: 'Sem8',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'SSC Obtained Marks',
+
+                    property: 'SscObt',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 1 Duration',
+
+                    property: 'Int1Dur',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'SSC (%)',
+
+                    property: 'SscPer',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 1 Company Name',
+
+                    property: 'Int1Org',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'HSC Total Marks (Out Of)',
+
+                    property: 'HscTot',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 1 Responsibilities',
+
+                    property: 'Int1Pst',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'HSC Obtained Marks',
+
+                    property: 'HscObt',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'HSC (%)',
+
+                    property: 'HscPer',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 1 Date',
+
+                    property: 'Int1Yrs',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 1 Job Titile',
+
+                    property: 'Int1Dtl',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'DIPLOMA Total Marks (Out Of)',
+
+                    property: 'DiplomaTot',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 2 Duration',
+
+                    property: 'Int2Dur',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Diploma Marks Obtained',
+
+                    property: 'DiplomaObt',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+
+                aCols.push({
+
+                    label: 'DIPLOMA (%)',
+
+                    property: 'DiplomaPerc',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 2 Company Name',
+
+                    property: 'Int2Org',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'DEGREE Total Marks (Out Of)',
+
+                    property: 'DegreeTot',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 2 Responsibilities',
+
+                    property: 'Int2Pst',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'DEGREE Obtained Marks',
+
+                    property: 'DegreeObt',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 2 Date',
+
+                    property: 'Int2Yrs',
+
+                    type: EdmType.Date,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'DEGREE (%)',
+
+                    property: 'DegreePer',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
                     label: 'Internship 2 Job Titile',
 
-                    property: 'Int2Post',
+                    property: 'Int2Dtl',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'POST Graduation Total Marks (Out Of)',
+
+                    property: 'PstdegTot',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 3 Duration',
+
+                    property: 'Int3Dur',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'POST Graduation Obtained Marks',
+
+                    property: 'PstdegObt',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 3 Company Name',
+
+                    property: 'Int3Org',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+
+                aCols.push({
+
+                    label: 'POST Graduation (%)',
+
+                    property: 'PstdegPer',
+
+                    type: EdmType.Int,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 3 Responsibilities',
+
+                    property: 'Int3Pst',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'College Code',
+
+                    property: 'OrganizationCode',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 3 Date',
+
+                    property: 'Int3Yrs',
 
                     type: EdmType.String,
 
@@ -610,7 +1587,73 @@ sap.ui.define([
 
                     label: 'Internship 3 Job Titile',
 
-                    property: 'Int3Post',
+                    property: 'Int3Dtl',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 4 Duration',
+
+                    property: 'Int4Dur',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Course Code',
+
+                    property: 'CourseCode',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Course/Program Name',
+
+                    property: 'ProgamName',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 4 Company Name',
+
+                    property: 'Int4Org',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 4 Responsibilities',
+
+                    property: 'Int4Pst',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 4 Date',
+
+                    property: 'Int4Yrs',
 
                     type: EdmType.String,
 
@@ -621,7 +1664,51 @@ sap.ui.define([
 
                     label: 'Internship 4 Job Titile',
 
-                    property: 'Int4Post',
+                    property: 'Int4Dtl',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 5 Duration',
+
+                    property: 'Int5Dur',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 5 Company Name',
+
+                    property: 'Int5Org',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 5 Responsibilities',
+
+                    property: 'Int5Pst',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Internship 5 Date',
+
+                    property: 'Int5Yrs',
 
                     type: EdmType.String,
 
@@ -632,7 +1719,41 @@ sap.ui.define([
 
                     label: 'Internship 5 Job Titile',
 
-                    property: 'Int5Post',
+                    property: 'Int5Dtl',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+
+                aCols.push({
+
+                    label: 'State',
+
+                    property: 'State',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Full Name',
+
+                    property: 'Fullname',
+
+                    type: EdmType.String,
+
+                    width: 30
+
+                });
+                aCols.push({
+
+                    label: 'Organization Name',
+
+                    property: 'OrganizationName',
 
                     type: EdmType.String,
 
@@ -969,613 +2090,8 @@ sap.ui.define([
                     width: 30
 
                 });
-                aCols.push({
 
-                    label: 'SSC Total Marks (Out Of)',
 
-                    property: 'SscTotMarks',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'SSC Obtained Marks',
-
-                    property: 'SscMarksObt',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'SSC (%)',
-
-                    property: 'SscPerc',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'HSC Total Marks (Out Of)',
-
-                    property: 'HscTotMarks',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'HSC Obtained Marks',
-
-                    property: 'HscMarksObt',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'HSC (%)',
-
-                    property: 'HscPerc',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'DIPLOMA Total Marks (Out Of)',
-
-                    property: 'DiplomaTotMarks',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Diploma Marks Obtained',
-
-                    property: 'DiplomaMarksObt',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'DIPLOMA (%)',
-
-                    property: 'DiplomaPerc',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'DEGREE Total Marks (Out Of)',
-
-                    property: 'DegreeTotMarks',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'DEGREE Obtained Marks',
-
-                    property: 'DegreeMarksObt',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'DEGREE (%)',
-
-                    property: 'DegreePerc',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'POST Graduation Total Marks (Out Of)',
-
-                    property: 'PostDegreeTotMarks',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'POST Graduation Obtained Marks',
-
-                    property: 'PostDegreeMarksObt',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'POST Graduation (%)',
-
-                    property: 'PostDegreePerc',
-
-                    type: EdmType.Int,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Student Number',
-
-                    property: 'Student12',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Student ID',
-
-                    property: 'Stobjid',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Coded note text',
-
-                    property: 'Codednoteidt',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Comment',
-
-                    property: 'CourseName',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Personal E-Mail Address',
-
-                    property: 'Pemail',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Mobile no.',
-
-                    property: 'Mobnumber',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Postal Code',
-
-                    property: 'Pincode',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Placement process Participation YES /NO',
-
-                    property: 'Response',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Reason for non participation in placement process',
-
-                    property: 'Remark',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-
-                aCols.push({
-
-                    label: 'Street 5',
-
-                    property: 'Location',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Street 2',
-
-                    property: 'StrSuppl1',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Street 3',
-
-                    property: 'StrSuppl2',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'House Number',
-
-                    property: 'HouseNum1',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'District',
-
-                    property: 'City2',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'City',
-
-                    property: 'City1',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'State',
-
-                    property: 'State',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Other City',
-
-                    property: 'OthCity',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Country',
-
-                    property: 'Country',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'SSC Board',
-
-                    property: 'SscBoard',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'SSC State',
-
-                    property: 'SscState',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-
-                aCols.push({
-
-                    label: 'HSC College Name',
-
-                    property: 'HscSchool',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'DIPLOMA UNIVERSITY',
-
-                    property: 'DiplomaBoad',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Diploma College Name',
-
-                    property: 'DiplomaSchool',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'DIPLOMA NAME / SPECIALIZATION',
-
-                    property: 'DiplomaSpecli',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'DEGREE UNIVERSITY',
-
-                    property: 'DegreeBoad',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Degree College Name',
-
-                    property: 'DegreeSchool',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'DEGREE SPECIALIZATION',
-
-                    property: 'DegreeSpecli',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'POST Graduation DEGREE UNIVERSITY',
-
-                    property: 'PostDegreeBoad',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Post Graduation College Name',
-
-                    property: 'PostDegreeSchool',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'POST Graduation SPECIALIZATION',
-
-                    property: 'PostDegreeSpecli',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Internship 1 Responsibilities',
-
-                    property: 'Int1Detail',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Internship 1 Company Name',
-
-                    property: 'Int1Butxt',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Internship 2 Responsibilities',
-
-                    property: 'Int2Detail',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Internship 2 Company Name',
-
-                    property: 'Int2Butxt',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Internship 3 Responsibilities',
-
-                    property: 'Int3Detail',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Internship 3 Company Name',
-
-                    property: 'Int3Butxt',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Internship 4 Responsibilities',
-
-                    property: 'Int4Detail',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Internship 4 Company Name',
-
-                    property: 'Int4Butxt',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Internship 5 Responsibilities',
-
-                    property: 'Int5Detail',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
-                aCols.push({
-
-                    label: 'Internship 5 Company Name',
-
-                    property: 'Int5Butxt',
-
-                    type: EdmType.String,
-
-                    width: 30
-
-                });
                 aCols.push({
 
                     label: 'Project1 Responsibilities',

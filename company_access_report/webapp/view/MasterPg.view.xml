@@ -146,7 +146,7 @@
             	<t:Table
                 id="studentList_table1"
 				rows="{path: 'listModel>/results'}"
-				selectionMode="MultiToggle"
+				selectionBehavior="RowOnly"
 				visibleRowCount="10"
                 visible="false"
 				paste="onPaste"
@@ -185,36 +185,7 @@
 							<Text text="{listModel>CollegeName}" wrapping="false" />
 						</t:template>
 					</t:Column>
-					<t:Column width="11rem">
-						<Label text="Building no" />
-						<t:template>
-							<Text text="{listModel>Building}" wrapping="false" />
-						</t:template>
-					</t:Column>
-					<t:Column width="11rem">
-						<Label text="Floor" />
-						<t:template>
-							<Text text="{listModel>Floor}" wrapping="false" />
-						</t:template>
-					</t:Column>
-					<t:Column width="11rem">
-						<Label text="Room Number" />
-						<t:template>
-							<Text text="{listModel>Roomnumber}" wrapping="false" />
-						</t:template>
-					</t:Column>
-					<t:Column width="11rem">
-						<Label text="c/o name" />
-						<t:template>
-							<Text text="{listModel>NameCo}" wrapping="false" />
-						</t:template>
-					</t:Column>
-					<t:Column width="11rem">
-						<Label text="Date of Birth" />
-						<t:template>
-							<Text text="{listModel>Dob}" wrapping="false" />
-						</t:template>
-					</t:Column>
+
 					<t:Column width="11rem">
 						<Label text="Student Number" />
 						<t:template>
@@ -227,12 +198,12 @@
 							<Text text="{listModel>Stobjid}" wrapping="false" />
 						</t:template>
 					</t:Column>
-					<t:Column width="11rem">
+					<!-- <t:Column width="11rem">
 						<Label text="College Org Id" />
 						<t:template>
 							<Text text="{listModel>OObjid}" wrapping="false" />
 						</t:template>
-					</t:Column>
+					</t:Column> -->
 					<t:Column width="11rem">
 						<Label text="Course Org Id" />
 						<t:template>
@@ -278,9 +249,166 @@
 						</t:template>
 					</t:Column>
 					<t:Column width="11rem">
-						<Label text="Mobile no." />
+						<Label text="Project 1 Name" />
+						<t:template>
+							<Text text="{listModel>Prj1Nme}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Telephone" />
 						<t:template>
 							<Text text="{listModel>Mobnumber}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Building Code" />
+						<t:template>
+							<Text text="{listModel>Building}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Project 1 Subject Name" />
+						<t:template>
+							<Text text="{listModel>Prj1Sub}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Floor" />
+						<t:template>
+							<Text text="{listModel>Floor}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Project 1 Description" />
+						<t:template>
+							<Text text="{listModel>Prj1Dtl}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Room Number" />
+						<t:template>
+							<Text text="{listModel>Roomnumber}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Project 2 Name" />
+						<t:template>
+							<Text text="{listModel>Prj2Nme}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="c/o name" />
+						<t:template>
+							<Text text="{listModel>NameCo}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Project 2 Subject Name" />
+						<t:template>
+							<Text text="{listModel>Prj2Sub}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Street 5" />
+						<t:template>
+							<Text text="{listModel>Location}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Project 2 Description" />
+						<t:template>
+							<Text text="{listModel>Prj2Dtl}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Street 2" />
+						<t:template>
+							<Text text="{listModel>StrSuppl1}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Project 3 Name" />
+						<t:template>
+							<Text text="{listModel>Prj3Nme}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Street 3" />
+						<t:template>
+							<Text text="{listModel>StrSuppl2}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Project 3 Subject Name" />
+						<t:template>
+							<Text text="{listModel>Prj3Sub}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="House Number" />
+						<t:template>
+							<Text text="{listModel>HouseNum1}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Project 3 Description" />
+						<t:template>
+							<Text text="{listModel>Prj3Dtl}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Project 4 Name" />
+						<t:template>
+							<Text text="{listModel>Prj4Nme}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="District" />
+						<t:template>
+							<Text text="{listModel>City2}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Project 4 Subject Name" />
+						<t:template>
+							<Text text="{listModel>Prj4Sub}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="City" />
+						<t:template>
+							<Text text="{listModel>City1}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Project 4 Description" />
+						<t:template>
+							<Text text="{listModel>Prj4Dtl}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					
+					<t:Column width="11rem">
+						<Label text="Project 5 Name" />
+						<t:template>
+							<Text text="{listModel>Prj5Nme}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Other City" />
+						<t:template>
+							<Text text="{listModel>OthCity}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Project 5 Subject Name" />
+						<t:template>
+							<Text text="{listModel>Prj5Sub}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Country" />
+						<t:template>
+							<Text text="{listModel>Country}" wrapping="false" />
 						</t:template>
 					</t:Column>
 					<t:Column width="11rem">
@@ -289,6 +417,120 @@
 							<Text text="{listModel>Pincode}" wrapping="false" />
 						</t:template>
 					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Project 5 Description" />
+						<t:template>
+							<Text text="{listModel>Prj5Dtl}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					 <t:Column width="11rem">
+						<Label text="SSC Board" />
+						<t:template>
+							<Text text="{listModel>SscBoard}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="SSC State" />
+						<t:template>
+							<Text text="{listModel>SscState}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="SSC School Name" />
+						<t:template>
+							<Text text="{listModel>SscSchool}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="HSC Board" />
+						<t:template>
+							<Text text="{listModel>HscBoard}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="HSC Board State" />
+						<t:template>
+							<Text text="{listModel>HscState}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					 <t:Column width="11rem">
+						<Label text="HSC College Name" />
+						<t:template>
+							<Text text="{listModel>HscSchool}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="DIPLOMA UNIVERSITY" />
+						<t:template>
+							<Text text="{listModel>DiplomaBoard}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="DIPLOMA State" />
+						<t:template>
+							<Text text="{listModel>DiplomaState}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Diploma College Name" />
+						<t:template>
+							<Text text="{listModel>DiplomaSchool}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="DIPLOMA NAME / SPECIALIZATION" />
+						<t:template>
+							<Text text="{listModel>DiplomaSpecl}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="DEGREE UNIVERSITY" />
+						<t:template>
+							<Text text="{listModel>DegreeBoard}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="DEGREE UNIVERSITY State" />
+						<t:template>
+							<Text text="{listModel>DegreeState}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Degree College Name" />
+						<t:template>
+							<Text text="{listModel>DegreeSchool}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="DEGREE SPECIALIZATION" />
+						<t:template>
+							<Text text="{listModel>DegreeSpecl}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="POST Graduation DEGREE UNIVERSITY" />
+						<t:template>
+							<Text text="{listModel>PstdegBoard}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="POST Graduation DEGREE UNIVERSITY State" />
+						<t:template>
+							<Text text="{listModel>PstdegState}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Post Graduation College Name" />
+						<t:template>
+							<Text text="{listModel>PstdegSchool}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="POST Graduation SPECIALIZATION" />
+						<t:template>
+							<Text text="{listModel>PstdegSpecl}" wrapping="false" />
+						</t:template>
+					</t:Column>					
 					 <t:Column width="11rem">
 						<Label text="Placement process Participation YES /NO" />
 						<t:template>
@@ -301,42 +543,347 @@
 							<Text text="{listModel>Remark}" wrapping="false" />
 						</t:template>
 					</t:Column>
-
-					
+			
 					<t:Column width="11rem">
-						<Label text="Street 5" />
+						<Label text="Sem1" />
 						<t:template>
-							<Text text="{listModel>Location}" wrapping="false" />
+							<Text text="{listModel>Sem1}" wrapping="false" />
 						</t:template>
 					</t:Column>
 					<t:Column width="11rem">
-						<Label text="Street 2" />
+						<Label text="Date of Birth" />
 						<t:template>
-							<Text text="{listModel>StrSuppl1}" wrapping="false" />
+							<Text text="{listModel>Dob}" wrapping="false" />
 						</t:template>
 					</t:Column>
 					<t:Column width="11rem">
-						<Label text="Street 3" />
+						<Label text="SSC Pass date" />
 						<t:template>
-							<Text text="{listModel>StrSuppl2}" wrapping="false" />
+							<Text text="{listModel>SscDate}" wrapping="false" />
 						</t:template>
 					</t:Column>
 					<t:Column width="11rem">
-						<Label text="House Number" />
+						<Label text="Sem2" />
 						<t:template>
-							<Text text="{listModel>HouseNum1}" wrapping="false" />
+							<Text text="{listModel>Sem2}" wrapping="false" />
 						</t:template>
 					</t:Column>
 					<t:Column width="11rem">
-						<Label text="District" />
+						<Label text="HSC Pass date" />
 						<t:template>
-							<Text text="{listModel>City2}" wrapping="false" />
+							<Text text="{listModel>HscDate}" wrapping="false" />
 						</t:template>
 					</t:Column>
 					<t:Column width="11rem">
-						<Label text="City" />
+						<Label text="Sem3" />
 						<t:template>
-							<Text text="{listModel>City1}" wrapping="false" />
+							<Text text="{listModel>Sem3}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Sem4" />
+						<t:template>
+							<Text text="{listModel>Sem4}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="DIPLOMA pass date" />
+						<t:template>
+							<Text text="{listModel>DiplomaDate}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Sem5" />
+						<t:template>
+							<Text text="{listModel>Sem5}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="DEGREE Pass date" />
+						<t:template>
+							<Text text="{listModel>DegreeDate}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Sem6" />
+						<t:template>
+							<Text text="{listModel>Sem6}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="POST Graduation Pass date" />
+						<t:template>
+							<Text text="{listModel>PstdegDate}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					 <t:Column width="11rem">
+						<Label text="SSC Total Marks (Out Of)" />
+						<t:template>
+							<Text text="{listModel>SscTot}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Sem7" />
+						<t:template>
+							<Text text="{listModel>Sem7}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Sem8" />
+						<t:template>
+							<Text text="{listModel>Sem8}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="SSC Obtained Marks" />
+						<t:template>
+							<Text text="{listModel>SscObt}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 1 Duration" />
+						<t:template>
+							<Text text="{listModel>Int1Dur}" wrapping="false" />
+						</t:template>
+					</t:Column> 
+                    <t:Column width="11rem">
+						<Label text="SSC (%)" />
+						<t:template>
+							<Text text="{listModel>SscPer}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 1 Company Name" />
+						<t:template>
+							<Text text="{listModel>Int1Org}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="HSC Total Marks (Out Of)" />
+						<t:template>
+							<Text text="{listModel>HscTot}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 1 Responsibilities" />
+						<t:template>
+							<Text text="{listModel>Int1Pst}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="HSC Obtained Marks" />
+						<t:template>
+							<Text text="{listModel>HscObt}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="HSC (%)" />
+						<t:template>
+							<Text text="{listModel>HscPer}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 1 Date" />
+						<t:template>
+							<Text text="{listModel>Int1Yrs}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 1 Job Titile" />
+						<t:template>
+							<Text text="{listModel>Int1Dtl}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="DIPLOMA Total Marks (Out Of)" />
+						<t:template>
+							<Text text="{listModel>DiplomaTot}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 2 Duration" />
+						<t:template>
+							<Text text="{listModel>Int2Dur}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Diploma Marks Obtained" />
+						<t:template>
+							<Text text="{listModel>DiplomaObt}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="DIPLOMA (%)" />
+						<t:template>
+							<Text text="{listModel>DiplomaPer}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 2 Company Name" />
+						<t:template>
+							<Text text="{listModel>Int2Org}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="DEGREE Total Marks (Out Of)" />
+						<t:template>
+							<Text text="{listModel>DegreeTot}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 2 Responsibilities" />
+						<t:template>
+							<Text text="{listModel>Int2Pst}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="DEGREE Obtained Marks" />
+						<t:template>
+							<Text text="{listModel>DegreeObt}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 2 Date" />
+						<t:template>
+							<Text text="{listModel>Int2Yrs}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="DEGREE(%)" />
+						<t:template>
+							<Text text="{listModel>DegreePer}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 2 Job Titile" />
+						<t:template>
+							<Text text="{listModel>Int2Dtl}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="POST Graduation Total Marks (Out Of)" />
+						<t:template>
+							<Text text="{listModel>PstdegTot}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 3 Duration" />
+						<t:template>
+							<Text text="{listModel>Int3Dur}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="POST Graduation Obtained Marks" />
+						<t:template>
+							<Text text="{listModel>PstdegObt}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 3 Company Name" />
+						<t:template>
+							<Text text="{listModel>Int3Org}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="POST Graduation (%)" />
+						<t:template>
+							<Text text="{listModel>PstdegPer}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 3 Responsibilities" />
+						<t:template>
+							<Text text="{listModel>Int3Pst}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="College Code" />
+						<t:template>
+							<Text text="{listModel>OrganizationCode}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 3 Date" />
+						<t:template>
+							<Text text="{listModel>Int3Yrs}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 3 Job Titile" />
+						<t:template>
+							<Text text="{listModel>Int3Dtl}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 4 Duration" />
+						<t:template>
+							<Text text="{listModel>Int4Dur}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Course Code" />
+						<t:template>
+							<Text text="{listModel>CourseCode}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Course/Program Name" />
+						<t:template>
+							<Text text="{listModel>ProgamName}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 4 Company Name" />
+						<t:template>
+							<Text text="{listModel>Int4Org}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 4 Responsibilities" />
+						<t:template>
+							<Text text="{listModel>Int4Pst}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 4 Date" />
+						<t:template>
+							<Text text="{listModel>Int4Yrs}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 4 Job Titile" />
+						<t:template>
+							<Text text="{listModel>Int4Dtl}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 5 Duration" />
+						<t:template>
+							<Text text="{listModel>Int5Dur}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 5 Company Name" />
+						<t:template>
+							<Text text="{listModel>Int5Org}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 5 Responsibilities" />
+						<t:template>
+							<Text text="{listModel>Int5Pst}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 5 Date" />
+						<t:template>
+							<Text text="{listModel>Int5Yrs}" wrapping="false" />
+						</t:template>
+					</t:Column>
+					<t:Column width="11rem">
+						<Label text="Internship 5 Job Titile" />
+						<t:template>
+							<Text text="{listModel>Int5Dtl}" wrapping="false" />
 						</t:template>
 					</t:Column>
 					<t:Column width="11rem">
@@ -345,45 +892,6 @@
 							<Text text="{listModel>State}" wrapping="false" />
 						</t:template>
 					</t:Column>
-					<t:Column width="11rem">
-						<Label text="Other City" />
-						<t:template>
-							<Text text="{listModel>OthCity}" wrapping="false" />
-						</t:template>
-					</t:Column>
-					<t:Column width="11rem">
-						<Label text="Country" />
-						<t:template>
-							<Text text="{listModel>Country}" wrapping="false" />
-						</t:template>
-					</t:Column>
-					  <t:Column width="11rem">
-						<Label text="SSC Board" />
-						<t:template>
-							<Text text="{listModel>SscBoard}" wrapping="false" />
-						</t:template>
-					</t:Column>
-					<t:Column width="11rem">
-						<Label text="SSC State" />
-						<t:template>
-							<Text text="{listModel>SscState}" wrapping="false" />
-						</t:template>
-					</t:Column>
-					
-
-
-
-
-
-
-
-
-
-                    
-
-                    
-
-                    
 					<t:Column width="11rem">
 						<Label text="Full Name" />
 						<t:template>
@@ -396,37 +904,7 @@
 							<Text text="{listModel>OrganizationName}" wrapping="false" />
 						</t:template>
 					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Internship 1 Job Titile" />
-						<t:template>
-							<Text text="{listModel>Int1Post}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    
-                     <t:Column width="11rem">
-						<Label text="Internship 2 Job Titile" />
-						<t:template>
-							<Text text="{listModel>Int2Post}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Internship 3 Job Titile" />
-						<t:template>
-							<Text text="{listModel>Int3Post}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Internship 4 Job Titile" />
-						<t:template>
-							<Text text="{listModel>Int4Post}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Internship 5 Job Titile" />
-						<t:template>
-							<Text text="{listModel>Int5Post}" wrapping="false" />
-						</t:template>
-					</t:Column>
+             
                     <t:Column width="11rem">
 						<Label text="Project1 Job Titile" />
 						<t:template>
@@ -607,99 +1085,21 @@
 							<Text text="{listModel>Proj5Edate}" wrapping="false" />
 						</t:template>
 					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="SSC Total Marks (Out Of)" />
-						<t:template>
-							<Text text="{listModel>SscTotMarks}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="SSC Obtained Marks" />
-						<t:template>
-							<Text text="{listModel>SscMarksObt}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="SSC (%)" />
-						<t:template>
-							<Text text="{listModel>SscPerc}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="HSC Total Marks (Out Of)" />
-						<t:template>
-							<Text text="{listModel>HscTotMarks}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="HSC Obtained Marks" />
-						<t:template>
-							<Text text="{listModel>HscMarksObt}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="HSC (%)" />
-						<t:template>
-							<Text text="{listModel>HscPerc}" wrapping="false" />
-						</t:template>
-					</t:Column>
+                   
+                    
+                    
+                    
 
-                     <t:Column width="11rem">
-						<Label text="DIPLOMA Total Marks (Out Of)" />
-						<t:template>
-							<Text text="{listModel>DiplomaTotMarks}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Diploma Marks Obtained" />
-						<t:template>
-							<Text text="{listModel>DiplomaMarksObt}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="DIPLOMA (%)" />
-						<t:template>
-							<Text text="{listModel>DiplomaPerc}" wrapping="false" />
-						</t:template>
-					</t:Column>
+                     
+                    
+                    
 
-                    <t:Column width="11rem">
-						<Label text="DEGREE Total Marks (Out Of)" />
-						<t:template>
-							<Text text="{listModel>DegreeTotMarks}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="DEGREE Obtained Marks" />
-						<t:template>
-							<Text text="{listModel>DegreeMarksObt}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="DEGREE (%)" />
-						<t:template>
-							<Text text="{listModel>DegreePerc}" wrapping="false" />
-						</t:template>
-					</t:Column>
+                    
+                    
+                    
 
-                     <t:Column width="11rem">
-						<Label text="POST Graduation Total Marks (Out Of)" />
-						<t:template>
-							<Text text="{listModel>PostDegreeTotMarks}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="POST Graduation Obtained Marks" />
-						<t:template>
-							<Text text="{listModel>PostDegreeMarksObt}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="POST Graduation (%)" />
-						<t:template>
-							<Text text="{listModel>PostDegreePerc}" wrapping="false" />
-						</t:template>
-					</t:Column>
+                     
+                    
                     
                     
                    
@@ -713,133 +1113,32 @@
                     
                   
 
-                    <t:Column width="11rem">
-						<Label text="HSC College Name" />
-						<t:template>
-							<Text text="{listModel>HscSchool}" wrapping="false" />
-						</t:template>
-					</t:Column>
+                   
 
-                    <t:Column width="11rem">
-						<Label text="DIPLOMA UNIVERSITY" />
-						<t:template>
-							<Text text="{listModel>DiplomaBoad}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Diploma College Name" />
-						<t:template>
-							<Text text="{listModel>DiplomaSchool}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="DIPLOMA NAME / SPECIALIZATION" />
-						<t:template>
-							<Text text="{listModel>DiplomaSpecli}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="DEGREE UNIVERSITY" />
-						<t:template>
-							<Text text="{listModel>DegreeBoad}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Degree College Name" />
-						<t:template>
-							<Text text="{listModel>DegreeSchool}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="DEGREE SPECIALIZATION" />
-						<t:template>
-							<Text text="{listModel>DegreeSpecli}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="POST Graduation DEGREE UNIVERSITY" />
-						<t:template>
-							<Text text="{listModel>PostDegreeBoad}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Post Graduation College Name" />
-						<t:template>
-							<Text text="{listModel>PostDegreeSchool}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="POST Graduation SPECIALIZATION" />
-						<t:template>
-							<Text text="{listModel>PostDegreeSpecli}" wrapping="false" />
-						</t:template>
-					</t:Column>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
 
 
 
-                    <t:Column width="11rem">
-						<Label text="Internship 1 Responsibilities" />
-						<t:template>
-							<Text text="{listModel>Int1Detail}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Internship 1 Company Name" />
-						<t:template>
-							<Text text="{listModel>Int1Butxt}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Internship 2 Responsibilities" />
-						<t:template>
-							<Text text="{listModel>Int2Detail}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Internship 2 Company Name" />
-						<t:template>
-							<Text text="{listModel>Int2Butxt}" wrapping="false" />
-						</t:template>
-					</t:Column>
+                    
+                    
+                    
+                    
 
-                     <t:Column width="11rem">
-						<Label text="Internship 3 Responsibilities" />
-						<t:template>
-							<Text text="{listModel>Int3Detail}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Internship 3 Company Name" />
-						<t:template>
-							<Text text="{listModel>Int3Butxt}" wrapping="false" />
-						</t:template>
-					</t:Column>
+                     
+                    
 
-                     <t:Column width="11rem">
-						<Label text="Internship 4 Responsibilities" />
-						<t:template>
-							<Text text="{listModel>Int4Detail}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Internship 4 Company Name" />
-						<t:template>
-							<Text text="{listModel>Int4Butxt}" wrapping="false" />
-						</t:template>
-					</t:Column>
+                     
+                    
 
-                     <t:Column width="11rem">
-						<Label text="Internship 5 Responsibilities" />
-						<t:template>
-							<Text text="{listModel>Int5Detail}" wrapping="false" />
-						</t:template>
-					</t:Column>
-                    <t:Column width="11rem">
-						<Label text="Internship 5 Company Name" />
-						<t:template>
-							<Text text="{listModel>Int5Butxt}" wrapping="false" />
-						</t:template>
-					</t:Column>
+                     
 
                      <t:Column width="11rem">
 						<Label text="Project1 Responsibilities" />
